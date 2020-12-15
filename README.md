@@ -15,7 +15,8 @@ Organización:
 
 src
 Fuentes de la solución
-
+doc
+Ejemplo de uso (se pueden consultar manuales de uso de branch anteriores -v1.0-)
 
 
 Información: https://www.gub.uy/agencia-gobierno-electronico-sociedad-informacion-conocimiento/sites/agencia-gobierno-electronico-sociedad-informacion-conocimiento/files/documentos/publicaciones/Informaci%C3%B3n_clienteJAVA.pdf
