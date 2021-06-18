@@ -1,0 +1,1299 @@
+<wsdl:definitions xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ws.rupe.acce.gub.uy/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ConsultaProveedores" targetNamespace="http://ws.rupe.acce.gub.uy/">
+<wsdl:types>
+<xs:schema xmlns:tns="http://ws.rupe.acce.gub.uy/" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://ws.rupe.acce.gub.uy/">
+<xs:element name="busquedaProveedores" type="tns:busquedaProveedores"/>
+<xs:element name="busquedaProveedoresResponse" type="tns:busquedaProveedoresResponse"/>
+<xs:element name="descripcion" type="tns:descripcion"/>
+<xs:element name="descripcionResponse" type="tns:descripcionResponse"/>
+<xs:element name="obtenerArticuloPorId" type="tns:obtenerArticuloPorId"/>
+<xs:element name="obtenerArticuloPorIdResponse" type="tns:obtenerArticuloPorIdResponse"/>
+<xs:element name="obtenerArticulosPorProveedor" type="tns:obtenerArticulosPorProveedor"/>
+<xs:element name="obtenerArticulosPorProveedorResponse" type="tns:obtenerArticulosPorProveedorResponse"/>
+<xs:element name="obtenerComunicacionPorId" type="tns:obtenerComunicacionPorId"/>
+<xs:element name="obtenerComunicacionPorIdResponse" type="tns:obtenerComunicacionPorIdResponse"/>
+<xs:element name="obtenerComunicacionesPorProveedorId" type="tns:obtenerComunicacionesPorProveedorId"/>
+<xs:element name="obtenerComunicacionesPorProveedorIdResponse" type="tns:obtenerComunicacionesPorProveedorIdResponse"/>
+<xs:element name="obtenerCuentaBancariaPorId" type="tns:obtenerCuentaBancariaPorId"/>
+<xs:element name="obtenerCuentaBancariaPorIdResponse" type="tns:obtenerCuentaBancariaPorIdResponse"/>
+<xs:element name="obtenerCuentasBancariasPorProveedor" type="tns:obtenerCuentasBancariasPorProveedor"/>
+<xs:element name="obtenerCuentasBancariasPorProveedorResponse" type="tns:obtenerCuentasBancariasPorProveedorResponse"/>
+<xs:element name="obtenerCumplimientoPorId" type="tns:obtenerCumplimientoPorId"/>
+<xs:element name="obtenerCumplimientoPorIdResponse" type="tns:obtenerCumplimientoPorIdResponse"/>
+<xs:element name="obtenerCumplimientosProveedor" type="tns:obtenerCumplimientosProveedor"/>
+<xs:element name="obtenerCumplimientosProveedorResponse" type="tns:obtenerCumplimientosProveedorResponse"/>
+<xs:element name="obtenerDocumentoProveedorPorId" type="tns:obtenerDocumentoProveedorPorId"/>
+<xs:element name="obtenerDocumentoProveedorPorIdResponse" type="tns:obtenerDocumentoProveedorPorIdResponse"/>
+<xs:element name="obtenerDocumentosProveedor" type="tns:obtenerDocumentosProveedor"/>
+<xs:element name="obtenerDocumentosProveedorResponse" type="tns:obtenerDocumentosProveedorResponse"/>
+<xs:element name="obtenerIdProveedor" type="tns:obtenerIdProveedor"/>
+<xs:element name="obtenerIdProveedorResponse" type="tns:obtenerIdProveedorResponse"/>
+<xs:element name="obtenerIdentificacionProveedorPorId" type="tns:obtenerIdentificacionProveedorPorId"/>
+<xs:element name="obtenerIdentificacionProveedorPorIdResponse" type="tns:obtenerIdentificacionProveedorPorIdResponse"/>
+<xs:element name="obtenerIdentificacionesPorProveedorId" type="tns:obtenerIdentificacionesPorProveedorId"/>
+<xs:element name="obtenerIdentificacionesPorProveedorIdResponse" type="tns:obtenerIdentificacionesPorProveedorIdResponse"/>
+<xs:element name="obtenerPersonaProveedorPorId" type="tns:obtenerPersonaProveedorPorId"/>
+<xs:element name="obtenerPersonaProveedorPorIdResponse" type="tns:obtenerPersonaProveedorPorIdResponse"/>
+<xs:element name="obtenerPersonasProveedorPorRol" type="tns:obtenerPersonasProveedorPorRol"/>
+<xs:element name="obtenerPersonasProveedorPorRolResponse" type="tns:obtenerPersonasProveedorPorRolResponse"/>
+<xs:element name="obtenerProveedor" type="tns:obtenerProveedor"/>
+<xs:element name="obtenerProveedorID" type="tns:obtenerProveedorID"/>
+<xs:element name="obtenerProveedorIDResponse" type="tns:obtenerProveedorIDResponse"/>
+<xs:element name="obtenerProveedorPorId" type="tns:obtenerProveedorPorId"/>
+<xs:element name="obtenerProveedorPorIdResponse" type="tns:obtenerProveedorPorIdResponse"/>
+<xs:element name="obtenerProveedorResponse" type="tns:obtenerProveedorResponse"/>
+<xs:element name="obtenerProveedoresConCambioDeEstado" type="tns:obtenerProveedoresConCambioDeEstado"/>
+<xs:element name="obtenerProveedoresConCambioDeEstadoResponse" type="tns:obtenerProveedoresConCambioDeEstadoResponse"/>
+<xs:element name="obtenerSancionPorId" type="tns:obtenerSancionPorId"/>
+<xs:element name="obtenerSancionPorIdResponse" type="tns:obtenerSancionPorIdResponse"/>
+<xs:element name="obtenerSancionesProveedor" type="tns:obtenerSancionesProveedor"/>
+<xs:element name="obtenerSancionesProveedorResponse" type="tns:obtenerSancionesProveedorResponse"/>
+<xs:element name="obtenerVencimientoPorId" type="tns:obtenerVencimientoPorId"/>
+<xs:element name="obtenerVencimientoPorIdResponse" type="tns:obtenerVencimientoPorIdResponse"/>
+<xs:element name="obtenerVencimientosProveedor" type="tns:obtenerVencimientosProveedor"/>
+<xs:element name="obtenerVencimientosProveedorResponse" type="tns:obtenerVencimientosProveedorResponse"/>
+<xs:element name="version" type="tns:version"/>
+<xs:element name="versionResponse" type="tns:versionResponse"/>
+<xs:complexType name="obtenerComunicacionPorId">
+<xs:sequence>
+<xs:element minOccurs="0" name="idComunicacion" type="xs:int"/>
+<xs:element minOccurs="0" name="codigoUsuario" type="xs:string"/>
+<xs:element minOccurs="0" name="version" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerComunicacionPorIdResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="comunicacion" type="tns:comunicacion"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="comunicacion">
+<xs:sequence>
+<xs:element minOccurs="0" name="idComunicacion" type="xs:int"/>
+<xs:element minOccurs="0" name="tipoComunicacion" type="xs:string"/>
+<xs:element minOccurs="0" name="destino" type="xs:string"/>
+<xs:element minOccurs="0" name="comentario" type="xs:string"/>
+<xs:element minOccurs="0" name="version" type="xs:int"/>
+<xs:element minOccurs="0" name="fechaVersion" type="xs:dateTime"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="mensaje">
+<xs:sequence>
+<xs:element minOccurs="0" name="codigo" type="xs:int"/>
+<xs:element minOccurs="0" name="mensaje" type="xs:string"/>
+<xs:element minOccurs="0" name="severidad" type="xs:int"/>
+<xs:element minOccurs="0" name="source" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerArticuloPorId">
+<xs:sequence>
+<xs:element minOccurs="0" name="idArticulo" type="xs:int"/>
+<xs:element minOccurs="0" name="codigoUsuario" type="xs:string"/>
+<xs:element minOccurs="0" name="version" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerArticuloPorIdResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="articulo" type="tns:articulo"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="articulo">
+<xs:sequence>
+<xs:element minOccurs="0" name="idArticulo" type="xs:int"/>
+<xs:element minOccurs="0" name="codigoFamilia" type="xs:string"/>
+<xs:element minOccurs="0" name="codigoSubFamilia" type="xs:string"/>
+<xs:element minOccurs="0" name="codigoClase" type="xs:string"/>
+<xs:element minOccurs="0" name="codigoSubclase" type="xs:string"/>
+<xs:element minOccurs="0" name="codigoArticulo" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerComunicacionesPorProveedorId">
+<xs:sequence>
+<xs:element minOccurs="0" name="idProveedor" type="xs:int"/>
+<xs:element minOccurs="0" name="codigoUsuario" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerComunicacionesPorProveedorIdResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="listaComunicacion" type="tns:listaComunicacion"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="listaComunicacion">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="comunicacion" nillable="true" type="tns:comunicacion"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="descripcion">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="descripcionResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="descripcion" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerProveedoresConCambioDeEstado">
+<xs:sequence>
+<xs:element name="fechaIni" type="xs:dateTime"/>
+<xs:element name="fechaFin" type="xs:dateTime"/>
+<xs:element name="codigoUsuario" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerProveedoresConCambioDeEstadoResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="listaProveedores" type="tns:listaProveedores"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="listaProveedores">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="proveedores" nillable="true" type="tns:proveedor"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="proveedor">
+<xs:sequence>
+<xs:element minOccurs="0" name="idProveedor" type="xs:int"/>
+<xs:element minOccurs="0" name="identificacionPrincipal" type="tns:identificacionProveedor"/>
+<xs:element minOccurs="0" name="denominacionSocial" type="xs:string"/>
+<xs:element minOccurs="0" name="tipoOrganizacion" type="xs:string"/>
+<xs:element minOccurs="0" name="nombreFantasia" type="xs:string"/>
+<xs:element minOccurs="0" name="otrasIdentificaciones" type="tns:identificaciones"/>
+<xs:element minOccurs="0" name="domicilioFiscal" type="xs:string"/>
+<xs:element minOccurs="0" name="codDeptoDomicilioFiscal" type="xs:string"/>
+<xs:element minOccurs="0" name="nomLocalidadDomicilioFiscal" type="xs:string"/>
+<xs:element minOccurs="0" name="domicilioNotificacion" type="tns:domicilio"/>
+<xs:element minOccurs="0" name="sitioWeb" type="xs:string"/>
+<xs:element minOccurs="0" name="estadoDelProveedor" type="tns:estadoProveedor"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="comunicaciones" nillable="true" type="tns:comunicacion"/>
+<xs:element minOccurs="0" name="correoElectronicoPrincipal" type="xs:string"/>
+<xs:element minOccurs="0" name="version" type="xs:int"/>
+<xs:element minOccurs="0" name="fechaVersion" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="domicilioPrincipal" type="tns:domicilio"/>
+<xs:element minOccurs="0" name="datosRepresentacion" type="xs:string"/>
+<xs:element minOccurs="0" name="estadoNJ" type="tns:estadoDato"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="identificacionProveedor">
+<xs:sequence>
+<xs:element minOccurs="0" name="codigoPais" type="xs:string"/>
+<xs:element minOccurs="0" name="tipoDocumento" type="xs:string"/>
+<xs:element minOccurs="0" name="numeroIdentificacion" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="identificaciones">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="identificaciones" nillable="true" type="tns:identificacionProveedor"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="domicilio">
+<xs:sequence>
+<xs:element minOccurs="0" name="codigoPais" type="xs:string"/>
+<xs:element minOccurs="0" name="codigoDepartamento" type="xs:string"/>
+<xs:element minOccurs="0" name="nombreDepartamento" type="xs:string"/>
+<xs:element minOccurs="0" name="tipoVialidad" type="xs:string"/>
+<xs:element minOccurs="0" name="nombreRuta" type="xs:string"/>
+<xs:element minOccurs="0" name="kilometro" type="xs:string"/>
+<xs:element minOccurs="0" name="nombreVialidad" type="xs:string"/>
+<xs:element minOccurs="0" name="numeroPuerta" type="xs:string"/>
+<xs:element minOccurs="0" name="paridad" type="xs:string"/>
+<xs:element minOccurs="0" name="manzanaCatastral" type="xs:string"/>
+<xs:element minOccurs="0" name="solarCatastral" type="xs:string"/>
+<xs:element minOccurs="0" name="otraDescripcion" type="xs:string"/>
+<xs:element minOccurs="0" name="codigoPostal" type="xs:string"/>
+<xs:element minOccurs="0" name="dirApto" type="xs:string"/>
+<xs:element minOccurs="0" name="dirBis" type="xs:boolean"/>
+<xs:element minOccurs="0" name="dirDeptoExterior" type="xs:string"/>
+<xs:element minOccurs="0" name="dirCiudadExterior" type="xs:string"/>
+<xs:element minOccurs="0" name="dirCodigoEntradaColectiva" type="xs:string"/>
+<xs:element minOccurs="0" name="dirNombreInmueble" type="xs:string"/>
+<xs:element minOccurs="0" name="dirCodigoLocalidad" type="xs:string"/>
+<xs:element minOccurs="0" name="nombreLocalidad" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerSancionesProveedor">
+<xs:sequence>
+<xs:element minOccurs="0" name="idProveedor" type="xs:int"/>
+<xs:element minOccurs="0" name="codigoUsuario" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerSancionesProveedorResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="listaSanciones" type="tns:listaSanciones"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="listaSanciones">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="sancion" nillable="true" type="tns:sancion"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="sancion">
+<xs:sequence>
+<xs:element minOccurs="0" name="idSancion" type="xs:int"/>
+<xs:element minOccurs="0" name="tipoSancion" type="xs:string"/>
+<xs:element minOccurs="0" name="nroResolucion" type="xs:string"/>
+<xs:element minOccurs="0" name="fechaHecho" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="vigenciaDesde" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="vigenciaHasta" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="codigoInciso" type="xs:string"/>
+<xs:element minOccurs="0" name="codigoUnidadEjecutora" type="xs:string"/>
+<xs:element minOccurs="0" name="documento" type="xs:base64Binary"/>
+<xs:element minOccurs="0" name="comentarios" type="xs:string"/>
+<xs:element minOccurs="0" name="version" type="xs:int"/>
+<xs:element minOccurs="0" name="fechaVersion" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="eliminada" type="xs:boolean"/>
+<xs:element minOccurs="0" name="revocada" type="xs:boolean"/>
+<xs:element minOccurs="0" name="listaIdDocumentos" type="tns:listaIDDocumentos"/>
+<xs:element minOccurs="0" name="fechaRevocacion" type="xs:dateTime"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="listaIDDocumentos">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="listaIdDocumento" nillable="true" type="tns:idDocumento"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="idDocumento">
+<xs:sequence>
+<xs:element minOccurs="0" name="idDocumento" type="xs:int"/>
+<xs:element minOccurs="0" name="version" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerCuentaBancariaPorId">
+<xs:sequence>
+<xs:element minOccurs="0" name="idCuentaBancaria" type="xs:int"/>
+<xs:element minOccurs="0" name="codigoUsuario" type="xs:string"/>
+<xs:element minOccurs="0" name="version" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerCuentaBancariaPorIdResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="cuentaBancaria" type="tns:cuentaBancaria"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="cuentaBancaria">
+<xs:sequence>
+<xs:element minOccurs="0" name="idCuentaBancaria" type="xs:int"/>
+<xs:element minOccurs="0" name="nombreBanco" type="xs:string"/>
+<xs:element minOccurs="0" name="nombreSucursal" type="xs:string"/>
+<xs:element minOccurs="0" name="codigoSWIFT" type="xs:string"/>
+<xs:element minOccurs="0" name="codigoABA" type="xs:string"/>
+<xs:element minOccurs="0" name="codigoPais" type="xs:string"/>
+<xs:element minOccurs="0" name="nombreTitularDeLaCuenta" type="xs:string"/>
+<xs:element minOccurs="0" name="moneda" type="xs:string"/>
+<xs:element minOccurs="0" name="tipoCuenta" type="xs:string"/>
+<xs:element minOccurs="0" name="comentariosAdicionales" type="xs:string"/>
+<xs:element minOccurs="0" name="version" type="xs:int"/>
+<xs:element minOccurs="0" name="fechaVersion" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="codigoBanco" type="xs:string"/>
+<xs:element minOccurs="0" name="codigoSucursal" type="xs:string"/>
+<xs:element minOccurs="0" name="nombreBancoIntermediario" type="xs:string"/>
+<xs:element minOccurs="0" name="codigoPaisBancoIntermediario" type="xs:string"/>
+<xs:element minOccurs="0" name="codigoSWIFTBancoIntermediario" type="xs:string"/>
+<xs:element minOccurs="0" name="ciudadBancoIntermediario" type="xs:string"/>
+<xs:element minOccurs="0" name="numeroCuenta" type="xs:string"/>
+<xs:element minOccurs="0" name="direccionBanco" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="alcance" nillable="true" type="tns:alcance"/>
+<xs:element minOccurs="0" name="codigoIBAN" type="xs:string"/>
+<xs:element minOccurs="0" name="ciudadBanco" type="xs:string"/>
+<xs:element minOccurs="0" name="textoValidacion" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="alcance">
+<xs:sequence>
+<xs:element minOccurs="0" name="idAlcance" type="xs:int"/>
+<xs:element minOccurs="0" name="codigoAlcance" type="xs:string"/>
+<xs:element minOccurs="0" name="codigoInciso" type="xs:string"/>
+<xs:element minOccurs="0" name="codigoUnidadEjecutora" type="xs:string"/>
+<xs:element minOccurs="0" name="version" type="xs:int"/>
+<xs:element minOccurs="0" name="fechaVersion" type="xs:dateTime"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerDocumentoProveedorPorId">
+<xs:sequence>
+<xs:element minOccurs="0" name="idDocumento" type="xs:int"/>
+<xs:element minOccurs="0" name="codigoUsuario" type="xs:string"/>
+<xs:element minOccurs="0" name="version" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerDocumentoProveedorPorIdResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="documentoProveedor" type="tns:documento"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="documento">
+<xs:sequence>
+<xs:element minOccurs="0" name="idDocumento" type="xs:int"/>
+<xs:element minOccurs="0" name="tipoDocumento" type="xs:string"/>
+<xs:element minOccurs="0" name="descripcion" type="xs:string"/>
+<xs:element minOccurs="0" name="archivo" type="xs:base64Binary"/>
+<xs:element minOccurs="0" name="vigenciaDesde" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="vigenciaHasta" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="version" type="xs:int"/>
+<xs:element minOccurs="0" name="fechaVersion" type="xs:dateTime"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerIdentificacionProveedorPorId">
+<xs:sequence>
+<xs:element minOccurs="0" name="idIdentificacion" type="xs:int"/>
+<xs:element minOccurs="0" name="codigoUsuario" type="xs:string"/>
+<xs:element minOccurs="0" name="version" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerIdentificacionProveedorPorIdResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="identificacion" type="tns:identificacionProveedor"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="version">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="versionResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="version" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerCumplimientosProveedor">
+<xs:sequence>
+<xs:element minOccurs="0" name="idProveedor" type="xs:int"/>
+<xs:element minOccurs="0" name="codigoUsuario" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerCumplimientosProveedorResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="listaCumplimientos" type="tns:listaCumplimientos"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="listaCumplimientos">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="cumplimiento" nillable="true" type="tns:cumplimiento"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="cumplimiento">
+<xs:sequence>
+<xs:element minOccurs="0" name="idCumplimiento" type="xs:int"/>
+<xs:element minOccurs="0" name="fechaCumplimiento" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="numeroCompra" type="xs:string"/>
+<xs:element minOccurs="0" name="codigoInciso" type="xs:string"/>
+<xs:element minOccurs="0" name="codigoUnidadEjecutora" type="xs:string"/>
+<xs:element minOccurs="0" name="cumpTipoProcedimiento" type="xs:string"/>
+<xs:element minOccurs="0" name="cumpAnioCompra" type="xs:int"/>
+<xs:element minOccurs="0" name="cumplio" type="xs:boolean"/>
+<xs:element minOccurs="0" name="ampliacion" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerArticulosPorProveedor">
+<xs:sequence>
+<xs:element minOccurs="0" name="idProveedor" type="xs:int"/>
+<xs:element minOccurs="0" name="codigoUsuario" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerArticulosPorProveedorResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="listaArticulos" type="tns:listaArticulos"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="listaArticulos">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="producto" nillable="true" type="tns:articulo"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerIdentificacionesPorProveedorId">
+<xs:sequence>
+<xs:element minOccurs="0" name="idProveedor" type="xs:int"/>
+<xs:element minOccurs="0" name="codigoUsuario" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerIdentificacionesPorProveedorIdResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="listaIdentificacion" type="tns:listaIdentificacionesProveedor"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="listaIdentificacionesProveedor">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="identificacionProveedor" nillable="true" type="tns:identificacionProveedor"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerVencimientosProveedor">
+<xs:sequence>
+<xs:element minOccurs="0" name="idProveedor" type="xs:int"/>
+<xs:element minOccurs="0" name="codigoUsuario" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerVencimientosProveedorResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="listaVencimientos" type="tns:listaVencimientos"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="listaVencimientos">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="vencimiento" nillable="true">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="idVencimiento" type="xs:int"/>
+<xs:element minOccurs="0" name="codigoOrganismo" type="xs:string"/>
+<xs:element minOccurs="0" name="fechaVencimiento" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="version" type="xs:int"/>
+<xs:element minOccurs="0" name="fechaVersion" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="notas" type="xs:string"/>
+<xs:element minOccurs="0" name="codigoCertificado" type="xs:string"/>
+<xs:element minOccurs="0" name="codigoClasificacion" type="xs:string"/>
+<xs:element minOccurs="0" name="descripcionClasificacion" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerProveedor">
+<xs:sequence>
+<xs:element minOccurs="0" name="idProveedorEntrada" type="tns:obtenerDatosProveedorEntrada"/>
+<xs:element minOccurs="0" name="codigoUsuario" type="xs:string"/>
+<xs:element minOccurs="0" name="version" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerDatosProveedorEntrada">
+<xs:sequence>
+<xs:element minOccurs="0" name="idProveedor" type="tns:identificacionProveedor"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerProveedorResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="proveedor" type="tns:proveedor"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="busquedaProveedores">
+<xs:sequence>
+<xs:element minOccurs="0" name="criterio" type="tns:criterioBusquedaProveedor"/>
+<xs:element minOccurs="0" name="codigoUsuario" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="criterioBusquedaProveedor">
+<xs:sequence>
+<xs:element minOccurs="0" name="codigoPais" type="xs:string"/>
+<xs:element minOccurs="0" name="tipoDocumento" type="xs:string"/>
+<xs:element minOccurs="0" name="numeroDocumento" type="xs:string"/>
+<xs:element minOccurs="0" name="nombre" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="busquedaProveedoresResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="listaProveedores" type="tns:listaProveedores"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerPersonasProveedorPorRol">
+<xs:sequence>
+<xs:element minOccurs="0" name="idProveedor" type="xs:int"/>
+<xs:element minOccurs="0" name="codigoUsuario" type="xs:string"/>
+<xs:element minOccurs="0" name="tipoRol" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerPersonasProveedorPorRolResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="listaPersonas" type="tns:listaPersonas"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="listaPersonas">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="persona" nillable="true" type="tns:persona"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="persona">
+<xs:sequence>
+<xs:element minOccurs="0" name="idPersona" type="xs:int"/>
+<xs:element minOccurs="0" name="identificacion" type="tns:identificacionPersona"/>
+<xs:element minOccurs="0" name="primerNombre" type="xs:string"/>
+<xs:element minOccurs="0" name="segundoNombre" type="xs:string"/>
+<xs:element minOccurs="0" name="primerApellido" type="xs:string"/>
+<xs:element minOccurs="0" name="segundoApellido" type="xs:string"/>
+<xs:element minOccurs="0" name="nombreEnDocumento" type="xs:string"/>
+<xs:element minOccurs="0" name="firma" type="xs:base64Binary"/>
+<xs:element minOccurs="0" name="version" type="xs:int"/>
+<xs:element minOccurs="0" name="fechaVersion" type="xs:dateTime"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="identificacionPersona">
+<xs:sequence>
+<xs:element minOccurs="0" name="paisEmisor" type="xs:string"/>
+<xs:element minOccurs="0" name="tipoDocumento" type="xs:string"/>
+<xs:element minOccurs="0" name="numeroDocumento" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerPersonaProveedorPorId">
+<xs:sequence>
+<xs:element minOccurs="0" name="idPersonaProveedor" type="xs:int"/>
+<xs:element minOccurs="0" name="codigoUsuario" type="xs:string"/>
+<xs:element minOccurs="0" name="version" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerPersonaProveedorPorIdResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="persona" type="tns:personaEnProveedor"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="personaEnProveedor">
+<xs:sequence>
+<xs:element minOccurs="0" name="persona" type="tns:persona"/>
+<xs:element minOccurs="0" name="rolEnProveedor" type="xs:string"/>
+<xs:element minOccurs="0" name="fechaDesde" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="fechaHasta" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="version" type="xs:int"/>
+<xs:element minOccurs="0" name="fechaVersion" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="idProveedor" type="xs:int"/>
+<xs:element minOccurs="0" name="identificacionProveedor" type="tns:identificacionProveedor"/>
+<xs:element minOccurs="0" name="listaAtribuciones" type="tns:listaAtribuciones"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="listaAtribuciones">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="listaAtribuciones" nillable="true" type="tns:rolYAtribuciones"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="rolYAtribuciones">
+<xs:sequence>
+<xs:element minOccurs="0" name="codigoAtribucion" type="xs:string"/>
+<xs:element minOccurs="0" name="codigoRol" type="xs:string"/>
+<xs:element minOccurs="0" name="modalidad" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerIdProveedor">
+<xs:sequence>
+<xs:element minOccurs="0" name="proveedorID" type="tns:identificacionProveedor"/>
+<xs:element minOccurs="0" name="codigoUsuario" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerIdProveedorResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="proveedorId" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerProveedorID">
+<xs:sequence>
+<xs:element minOccurs="0" name="idProveedor" type="xs:int"/>
+<xs:element minOccurs="0" name="codigoUsuario" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerProveedorIDResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="identificacionProveedor" type="tns:identificacionProveedor"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerSancionPorId">
+<xs:sequence>
+<xs:element minOccurs="0" name="idSancion" type="xs:int"/>
+<xs:element minOccurs="0" name="codigoUsuario" type="xs:string"/>
+<xs:element minOccurs="0" name="version" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerSancionPorIdResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="sancion" type="tns:sancion"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerVencimientoPorId">
+<xs:sequence>
+<xs:element minOccurs="0" name="idVencimiento" type="xs:int"/>
+<xs:element minOccurs="0" name="codigoUsuario" type="xs:string"/>
+<xs:element minOccurs="0" name="version" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerVencimientoPorIdResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="vencimiento">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="idVencimiento" type="xs:int"/>
+<xs:element minOccurs="0" name="codigoOrganismo" type="xs:string"/>
+<xs:element minOccurs="0" name="fechaVencimiento" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="version" type="xs:int"/>
+<xs:element minOccurs="0" name="fechaVersion" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="notas" type="xs:string"/>
+<xs:element minOccurs="0" name="codigoCertificado" type="xs:string"/>
+<xs:element minOccurs="0" name="codigoClasificacion" type="xs:string"/>
+<xs:element minOccurs="0" name="descripcionClasificacion" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerCuentasBancariasPorProveedor">
+<xs:sequence>
+<xs:element minOccurs="0" name="idProveedor" type="xs:int"/>
+<xs:element minOccurs="0" name="codigoUsuario" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerCuentasBancariasPorProveedorResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="cuentasBancarias" type="tns:listaCuentasBancarias"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="listaCuentasBancarias">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="cuentaBancaria" nillable="true" type="tns:cuentaBancaria"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerCumplimientoPorId">
+<xs:sequence>
+<xs:element minOccurs="0" name="idCumplimiento" type="xs:int"/>
+<xs:element minOccurs="0" name="codigoUsuario" type="xs:string"/>
+<xs:element minOccurs="0" name="version" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerCumplimientoPorIdResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="cumplimiento" type="tns:cumplimiento"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerProveedorPorId">
+<xs:sequence>
+<xs:element minOccurs="0" name="idProveedorEntrada" type="xs:int"/>
+<xs:element minOccurs="0" name="codigoUsuario" type="xs:string"/>
+<xs:element minOccurs="0" name="version" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerProveedorPorIdResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="proveedor" type="tns:proveedor"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerDocumentosProveedor">
+<xs:sequence>
+<xs:element minOccurs="0" name="criteriaDocumento" type="tns:obtenerDocumentosProveedorEntrada"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerDocumentosProveedorEntrada">
+<xs:sequence>
+<xs:element minOccurs="0" name="identificacionPrincipalProveedor" type="tns:identificacionProveedor"/>
+<xs:element minOccurs="0" name="tipoDocumento" type="xs:string"/>
+<xs:element minOccurs="0" name="codigoUsuario" type="xs:string"/>
+<xs:element minOccurs="0" name="idProveedor" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="obtenerDocumentosProveedorResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="listaDocumentos" type="tns:idDocumento"/>
+</xs:sequence>
+</xs:complexType>
+<xs:simpleType name="estadoProveedor">
+<xs:restriction base="xs:string">
+<xs:enumeration value="ENING"/>
+<xs:enumeration value="ACTIVO"/>
+<xs:enumeration value="ELIM"/>
+<xs:enumeration value="BAJA"/>
+<xs:enumeration value="CANC"/>
+<xs:enumeration value="SUSP"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="estadoDato">
+<xs:restriction base="xs:string">
+<xs:enumeration value="PEND"/>
+<xs:enumeration value="VAL"/>
+<xs:enumeration value="RECH"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:element name="RUPEException" type="tns:RUPEException"/>
+<xs:complexType name="RUPEException">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="mensajes" type="tns:mensaje"/>
+<xs:element name="codigo" nillable="true" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+</wsdl:types>
+<wsdl:message name="versionResponse">
+<wsdl:part element="tns:versionResponse" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="version">
+<wsdl:part element="tns:version" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerComunicacionesPorProveedorId">
+<wsdl:part element="tns:obtenerComunicacionesPorProveedorId" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerProveedorPorId">
+<wsdl:part element="tns:obtenerProveedorPorId" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerIdentificacionesPorProveedorId">
+<wsdl:part element="tns:obtenerIdentificacionesPorProveedorId" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerCuentasBancariasPorProveedorResponse">
+<wsdl:part element="tns:obtenerCuentasBancariasPorProveedorResponse" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerArticulosPorProveedorResponse">
+<wsdl:part element="tns:obtenerArticulosPorProveedorResponse" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerComunicacionPorId">
+<wsdl:part element="tns:obtenerComunicacionPorId" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerProveedoresConCambioDeEstado">
+<wsdl:part element="tns:obtenerProveedoresConCambioDeEstado" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerComunicacionPorIdResponse">
+<wsdl:part element="tns:obtenerComunicacionPorIdResponse" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerCuentasBancariasPorProveedor">
+<wsdl:part element="tns:obtenerCuentasBancariasPorProveedor" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="descripcion">
+<wsdl:part element="tns:descripcion" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerArticuloPorId">
+<wsdl:part element="tns:obtenerArticuloPorId" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerArticuloPorIdResponse">
+<wsdl:part element="tns:obtenerArticuloPorIdResponse" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerArticulosPorProveedor">
+<wsdl:part element="tns:obtenerArticulosPorProveedor" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerProveedoresConCambioDeEstadoResponse">
+<wsdl:part element="tns:obtenerProveedoresConCambioDeEstadoResponse" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerDocumentoProveedorPorId">
+<wsdl:part element="tns:obtenerDocumentoProveedorPorId" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerProveedor">
+<wsdl:part element="tns:obtenerProveedor" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="RUPEException">
+<wsdl:part element="tns:RUPEException" name="RUPEException"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerDocumentoProveedorPorIdResponse">
+<wsdl:part element="tns:obtenerDocumentoProveedorPorIdResponse" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerCumplimientosProveedorResponse">
+<wsdl:part element="tns:obtenerCumplimientosProveedorResponse" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerComunicacionesPorProveedorIdResponse">
+<wsdl:part element="tns:obtenerComunicacionesPorProveedorIdResponse" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="descripcionResponse">
+<wsdl:part element="tns:descripcionResponse" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerProveedorResponse">
+<wsdl:part element="tns:obtenerProveedorResponse" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="busquedaProveedoresResponse">
+<wsdl:part element="tns:busquedaProveedoresResponse" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerSancionesProveedorResponse">
+<wsdl:part element="tns:obtenerSancionesProveedorResponse" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerProveedorPorIdResponse">
+<wsdl:part element="tns:obtenerProveedorPorIdResponse" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerCumplimientosProveedor">
+<wsdl:part element="tns:obtenerCumplimientosProveedor" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerVencimientosProveedorResponse">
+<wsdl:part element="tns:obtenerVencimientosProveedorResponse" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerCumplimientoPorId">
+<wsdl:part element="tns:obtenerCumplimientoPorId" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerCumplimientoPorIdResponse">
+<wsdl:part element="tns:obtenerCumplimientoPorIdResponse" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="busquedaProveedores">
+<wsdl:part element="tns:busquedaProveedores" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerSancionPorId">
+<wsdl:part element="tns:obtenerSancionPorId" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerIdentificacionProveedorPorIdResponse">
+<wsdl:part element="tns:obtenerIdentificacionProveedorPorIdResponse" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerDocumentosProveedor">
+<wsdl:part element="tns:obtenerDocumentosProveedor" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerCuentaBancariaPorIdResponse">
+<wsdl:part element="tns:obtenerCuentaBancariaPorIdResponse" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerProveedorID">
+<wsdl:part element="tns:obtenerProveedorID" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerDocumentosProveedorResponse">
+<wsdl:part element="tns:obtenerDocumentosProveedorResponse" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerPersonasProveedorPorRolResponse">
+<wsdl:part element="tns:obtenerPersonasProveedorPorRolResponse" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerPersonaProveedorPorId">
+<wsdl:part element="tns:obtenerPersonaProveedorPorId" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerIdProveedorResponse">
+<wsdl:part element="tns:obtenerIdProveedorResponse" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerSancionPorIdResponse">
+<wsdl:part element="tns:obtenerSancionPorIdResponse" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerSancionesProveedor">
+<wsdl:part element="tns:obtenerSancionesProveedor" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerCuentaBancariaPorId">
+<wsdl:part element="tns:obtenerCuentaBancariaPorId" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerVencimientosProveedor">
+<wsdl:part element="tns:obtenerVencimientosProveedor" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerIdentificacionProveedorPorId">
+<wsdl:part element="tns:obtenerIdentificacionProveedorPorId" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerIdentificacionesPorProveedorIdResponse">
+<wsdl:part element="tns:obtenerIdentificacionesPorProveedorIdResponse" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerProveedorIDResponse">
+<wsdl:part element="tns:obtenerProveedorIDResponse" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerVencimientoPorIdResponse">
+<wsdl:part element="tns:obtenerVencimientoPorIdResponse" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerIdProveedor">
+<wsdl:part element="tns:obtenerIdProveedor" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerPersonasProveedorPorRol">
+<wsdl:part element="tns:obtenerPersonasProveedorPorRol" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerPersonaProveedorPorIdResponse">
+<wsdl:part element="tns:obtenerPersonaProveedorPorIdResponse" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="obtenerVencimientoPorId">
+<wsdl:part element="tns:obtenerVencimientoPorId" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:portType name="ConsultaProveedores">
+<wsdl:operation name="obtenerComunicacionPorId">
+<wsdl:input message="tns:obtenerComunicacionPorId" name="obtenerComunicacionPorId"> </wsdl:input>
+<wsdl:output message="tns:obtenerComunicacionPorIdResponse" name="obtenerComunicacionPorIdResponse"> </wsdl:output>
+<wsdl:fault message="tns:RUPEException" name="RUPEException"> </wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="obtenerArticuloPorId">
+<wsdl:input message="tns:obtenerArticuloPorId" name="obtenerArticuloPorId"> </wsdl:input>
+<wsdl:output message="tns:obtenerArticuloPorIdResponse" name="obtenerArticuloPorIdResponse"> </wsdl:output>
+<wsdl:fault message="tns:RUPEException" name="RUPEException"> </wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="obtenerComunicacionesPorProveedorId">
+<wsdl:input message="tns:obtenerComunicacionesPorProveedorId" name="obtenerComunicacionesPorProveedorId"> </wsdl:input>
+<wsdl:output message="tns:obtenerComunicacionesPorProveedorIdResponse" name="obtenerComunicacionesPorProveedorIdResponse"> </wsdl:output>
+<wsdl:fault message="tns:RUPEException" name="RUPEException"> </wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="descripcion">
+<wsdl:input message="tns:descripcion" name="descripcion"> </wsdl:input>
+<wsdl:output message="tns:descripcionResponse" name="descripcionResponse"> </wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="obtenerProveedoresConCambioDeEstado">
+<wsdl:input message="tns:obtenerProveedoresConCambioDeEstado" name="obtenerProveedoresConCambioDeEstado"> </wsdl:input>
+<wsdl:output message="tns:obtenerProveedoresConCambioDeEstadoResponse" name="obtenerProveedoresConCambioDeEstadoResponse"> </wsdl:output>
+<wsdl:fault message="tns:RUPEException" name="RUPEException"> </wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="obtenerSancionesProveedor">
+<wsdl:input message="tns:obtenerSancionesProveedor" name="obtenerSancionesProveedor"> </wsdl:input>
+<wsdl:output message="tns:obtenerSancionesProveedorResponse" name="obtenerSancionesProveedorResponse"> </wsdl:output>
+<wsdl:fault message="tns:RUPEException" name="RUPEException"> </wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="obtenerCuentaBancariaPorId">
+<wsdl:input message="tns:obtenerCuentaBancariaPorId" name="obtenerCuentaBancariaPorId"> </wsdl:input>
+<wsdl:output message="tns:obtenerCuentaBancariaPorIdResponse" name="obtenerCuentaBancariaPorIdResponse"> </wsdl:output>
+<wsdl:fault message="tns:RUPEException" name="RUPEException"> </wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="obtenerDocumentoProveedorPorId">
+<wsdl:input message="tns:obtenerDocumentoProveedorPorId" name="obtenerDocumentoProveedorPorId"> </wsdl:input>
+<wsdl:output message="tns:obtenerDocumentoProveedorPorIdResponse" name="obtenerDocumentoProveedorPorIdResponse"> </wsdl:output>
+<wsdl:fault message="tns:RUPEException" name="RUPEException"> </wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="obtenerIdentificacionProveedorPorId">
+<wsdl:input message="tns:obtenerIdentificacionProveedorPorId" name="obtenerIdentificacionProveedorPorId"> </wsdl:input>
+<wsdl:output message="tns:obtenerIdentificacionProveedorPorIdResponse" name="obtenerIdentificacionProveedorPorIdResponse"> </wsdl:output>
+<wsdl:fault message="tns:RUPEException" name="RUPEException"> </wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="version">
+<wsdl:input message="tns:version" name="version"> </wsdl:input>
+<wsdl:output message="tns:versionResponse" name="versionResponse"> </wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="obtenerCumplimientosProveedor">
+<wsdl:input message="tns:obtenerCumplimientosProveedor" name="obtenerCumplimientosProveedor"> </wsdl:input>
+<wsdl:output message="tns:obtenerCumplimientosProveedorResponse" name="obtenerCumplimientosProveedorResponse"> </wsdl:output>
+<wsdl:fault message="tns:RUPEException" name="RUPEException"> </wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="obtenerArticulosPorProveedor">
+<wsdl:input message="tns:obtenerArticulosPorProveedor" name="obtenerArticulosPorProveedor"> </wsdl:input>
+<wsdl:output message="tns:obtenerArticulosPorProveedorResponse" name="obtenerArticulosPorProveedorResponse"> </wsdl:output>
+<wsdl:fault message="tns:RUPEException" name="RUPEException"> </wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="obtenerIdentificacionesPorProveedorId">
+<wsdl:input message="tns:obtenerIdentificacionesPorProveedorId" name="obtenerIdentificacionesPorProveedorId"> </wsdl:input>
+<wsdl:output message="tns:obtenerIdentificacionesPorProveedorIdResponse" name="obtenerIdentificacionesPorProveedorIdResponse"> </wsdl:output>
+<wsdl:fault message="tns:RUPEException" name="RUPEException"> </wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="obtenerVencimientosProveedor">
+<wsdl:input message="tns:obtenerVencimientosProveedor" name="obtenerVencimientosProveedor"> </wsdl:input>
+<wsdl:output message="tns:obtenerVencimientosProveedorResponse" name="obtenerVencimientosProveedorResponse"> </wsdl:output>
+<wsdl:fault message="tns:RUPEException" name="RUPEException"> </wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="obtenerProveedor">
+<wsdl:input message="tns:obtenerProveedor" name="obtenerProveedor"> </wsdl:input>
+<wsdl:output message="tns:obtenerProveedorResponse" name="obtenerProveedorResponse"> </wsdl:output>
+<wsdl:fault message="tns:RUPEException" name="RUPEException"> </wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="busquedaProveedores">
+<wsdl:input message="tns:busquedaProveedores" name="busquedaProveedores"> </wsdl:input>
+<wsdl:output message="tns:busquedaProveedoresResponse" name="busquedaProveedoresResponse"> </wsdl:output>
+<wsdl:fault message="tns:RUPEException" name="RUPEException"> </wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="obtenerPersonasProveedorPorRol">
+<wsdl:input message="tns:obtenerPersonasProveedorPorRol" name="obtenerPersonasProveedorPorRol"> </wsdl:input>
+<wsdl:output message="tns:obtenerPersonasProveedorPorRolResponse" name="obtenerPersonasProveedorPorRolResponse"> </wsdl:output>
+<wsdl:fault message="tns:RUPEException" name="RUPEException"> </wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="obtenerPersonaProveedorPorId">
+<wsdl:input message="tns:obtenerPersonaProveedorPorId" name="obtenerPersonaProveedorPorId"> </wsdl:input>
+<wsdl:output message="tns:obtenerPersonaProveedorPorIdResponse" name="obtenerPersonaProveedorPorIdResponse"> </wsdl:output>
+<wsdl:fault message="tns:RUPEException" name="RUPEException"> </wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="obtenerIdProveedor">
+<wsdl:input message="tns:obtenerIdProveedor" name="obtenerIdProveedor"> </wsdl:input>
+<wsdl:output message="tns:obtenerIdProveedorResponse" name="obtenerIdProveedorResponse"> </wsdl:output>
+<wsdl:fault message="tns:RUPEException" name="RUPEException"> </wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="obtenerProveedorID">
+<wsdl:input message="tns:obtenerProveedorID" name="obtenerProveedorID"> </wsdl:input>
+<wsdl:output message="tns:obtenerProveedorIDResponse" name="obtenerProveedorIDResponse"> </wsdl:output>
+<wsdl:fault message="tns:RUPEException" name="RUPEException"> </wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="obtenerSancionPorId">
+<wsdl:input message="tns:obtenerSancionPorId" name="obtenerSancionPorId"> </wsdl:input>
+<wsdl:output message="tns:obtenerSancionPorIdResponse" name="obtenerSancionPorIdResponse"> </wsdl:output>
+<wsdl:fault message="tns:RUPEException" name="RUPEException"> </wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="obtenerVencimientoPorId">
+<wsdl:input message="tns:obtenerVencimientoPorId" name="obtenerVencimientoPorId"> </wsdl:input>
+<wsdl:output message="tns:obtenerVencimientoPorIdResponse" name="obtenerVencimientoPorIdResponse"> </wsdl:output>
+<wsdl:fault message="tns:RUPEException" name="RUPEException"> </wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="obtenerCuentasBancariasPorProveedor">
+<wsdl:input message="tns:obtenerCuentasBancariasPorProveedor" name="obtenerCuentasBancariasPorProveedor"> </wsdl:input>
+<wsdl:output message="tns:obtenerCuentasBancariasPorProveedorResponse" name="obtenerCuentasBancariasPorProveedorResponse"> </wsdl:output>
+<wsdl:fault message="tns:RUPEException" name="RUPEException"> </wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="obtenerCumplimientoPorId">
+<wsdl:input message="tns:obtenerCumplimientoPorId" name="obtenerCumplimientoPorId"> </wsdl:input>
+<wsdl:output message="tns:obtenerCumplimientoPorIdResponse" name="obtenerCumplimientoPorIdResponse"> </wsdl:output>
+<wsdl:fault message="tns:RUPEException" name="RUPEException"> </wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="obtenerProveedorPorId">
+<wsdl:input message="tns:obtenerProveedorPorId" name="obtenerProveedorPorId"> </wsdl:input>
+<wsdl:output message="tns:obtenerProveedorPorIdResponse" name="obtenerProveedorPorIdResponse"> </wsdl:output>
+<wsdl:fault message="tns:RUPEException" name="RUPEException"> </wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="obtenerDocumentosProveedor">
+<wsdl:input message="tns:obtenerDocumentosProveedor" name="obtenerDocumentosProveedor"> </wsdl:input>
+<wsdl:output message="tns:obtenerDocumentosProveedorResponse" name="obtenerDocumentosProveedorResponse"> </wsdl:output>
+<wsdl:fault message="tns:RUPEException" name="RUPEException"> </wsdl:fault>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding name="ConsultaProveedoresSoapBinding" type="tns:ConsultaProveedores">
+<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="obtenerComunicacionPorId">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="obtenerComunicacionPorId">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="obtenerComunicacionPorIdResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="RUPEException">
+<soap:fault name="RUPEException" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="obtenerArticuloPorId">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="obtenerArticuloPorId">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="obtenerArticuloPorIdResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="RUPEException">
+<soap:fault name="RUPEException" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="descripcion">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="descripcion">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="descripcionResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="obtenerComunicacionesPorProveedorId">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="obtenerComunicacionesPorProveedorId">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="obtenerComunicacionesPorProveedorIdResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="RUPEException">
+<soap:fault name="RUPEException" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="obtenerProveedoresConCambioDeEstado">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="obtenerProveedoresConCambioDeEstado">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="obtenerProveedoresConCambioDeEstadoResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="RUPEException">
+<soap:fault name="RUPEException" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="obtenerSancionesProveedor">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="obtenerSancionesProveedor">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="obtenerSancionesProveedorResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="RUPEException">
+<soap:fault name="RUPEException" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="obtenerCuentaBancariaPorId">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="obtenerCuentaBancariaPorId">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="obtenerCuentaBancariaPorIdResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="RUPEException">
+<soap:fault name="RUPEException" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="obtenerDocumentoProveedorPorId">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="obtenerDocumentoProveedorPorId">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="obtenerDocumentoProveedorPorIdResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="RUPEException">
+<soap:fault name="RUPEException" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="obtenerIdentificacionProveedorPorId">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="obtenerIdentificacionProveedorPorId">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="obtenerIdentificacionProveedorPorIdResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="RUPEException">
+<soap:fault name="RUPEException" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="version">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="version">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="versionResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="obtenerCumplimientosProveedor">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="obtenerCumplimientosProveedor">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="obtenerCumplimientosProveedorResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="RUPEException">
+<soap:fault name="RUPEException" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="obtenerArticulosPorProveedor">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="obtenerArticulosPorProveedor">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="obtenerArticulosPorProveedorResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="RUPEException">
+<soap:fault name="RUPEException" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="obtenerIdentificacionesPorProveedorId">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="obtenerIdentificacionesPorProveedorId">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="obtenerIdentificacionesPorProveedorIdResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="RUPEException">
+<soap:fault name="RUPEException" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="obtenerVencimientosProveedor">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="obtenerVencimientosProveedor">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="obtenerVencimientosProveedorResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="RUPEException">
+<soap:fault name="RUPEException" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="obtenerProveedor">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="obtenerProveedor">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="obtenerProveedorResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="RUPEException">
+<soap:fault name="RUPEException" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="busquedaProveedores">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="busquedaProveedores">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="busquedaProveedoresResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="RUPEException">
+<soap:fault name="RUPEException" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="obtenerIdProveedor">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="obtenerIdProveedor">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="obtenerIdProveedorResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="RUPEException">
+<soap:fault name="RUPEException" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="obtenerPersonaProveedorPorId">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="obtenerPersonaProveedorPorId">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="obtenerPersonaProveedorPorIdResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="RUPEException">
+<soap:fault name="RUPEException" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="obtenerPersonasProveedorPorRol">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="obtenerPersonasProveedorPorRol">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="obtenerPersonasProveedorPorRolResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="RUPEException">
+<soap:fault name="RUPEException" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="obtenerProveedorID">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="obtenerProveedorID">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="obtenerProveedorIDResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="RUPEException">
+<soap:fault name="RUPEException" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="obtenerSancionPorId">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="obtenerSancionPorId">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="obtenerSancionPorIdResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="RUPEException">
+<soap:fault name="RUPEException" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="obtenerVencimientoPorId">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="obtenerVencimientoPorId">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="obtenerVencimientoPorIdResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="RUPEException">
+<soap:fault name="RUPEException" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="obtenerCuentasBancariasPorProveedor">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="obtenerCuentasBancariasPorProveedor">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="obtenerCuentasBancariasPorProveedorResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="RUPEException">
+<soap:fault name="RUPEException" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="obtenerCumplimientoPorId">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="obtenerCumplimientoPorId">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="obtenerCumplimientoPorIdResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="RUPEException">
+<soap:fault name="RUPEException" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="obtenerProveedorPorId">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="obtenerProveedorPorId">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="obtenerProveedorPorIdResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="RUPEException">
+<soap:fault name="RUPEException" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="obtenerDocumentosProveedor">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="obtenerDocumentosProveedor">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="obtenerDocumentosProveedorResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="RUPEException">
+<soap:fault name="RUPEException" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="ConsultaProveedores">
+<wsdl:port binding="tns:ConsultaProveedoresSoapBinding" name="ConsultaProveedoresPort">
+<soap:address location="http://rupetest.acce.red.uy:80/RUPE-WS/ConsultaProveedores"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>

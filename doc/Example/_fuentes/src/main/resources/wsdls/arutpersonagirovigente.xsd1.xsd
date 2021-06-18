@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="DGI_ServicioExternoGiro" xmlns:wsdlns="DGI_ServicioExternoGiro" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns1="Genexus" targetNamespace="DGI_ServicioExternoGiro" elementFormDefault="qualified">
+			
+<import namespace="Genexus"/>
+			
+<element name="RUTPersonaGiroVigente.Execute">
+				
+<complexType>
+					
+<sequence>
+						
+<element minOccurs="1" maxOccurs="1" name="Rut" type="xsd:string"/>
+						
+<element minOccurs="1" maxOccurs="1" name="Girocod" type="xsd:int"/>
+					</sequence>
+				</complexType>
+			</element>
+			
+<element name="RUTPersonaGiroVigente.ExecuteResponse">
+				
+<complexType>
+					
+<sequence>
+						
+<element minOccurs="1" maxOccurs="1" name="Flagvigente" type="xsd:string"/>
+						
+<element minOccurs="1" maxOccurs="1" name="Mensajes" type="xsd:string"/>
+					</sequence>
+				</complexType>
+			</element>
+		</schema>

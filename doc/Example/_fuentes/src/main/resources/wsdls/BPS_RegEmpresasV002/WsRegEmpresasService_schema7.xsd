@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema version="1.0" targetNamespace="http://bps.gub.uy/atyr/registro/empresas/v003/datatypes" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://bps.gub.uy/atyr/registro/empresas/v003/datatypes" xmlns:ns1="http://bps.gub.uy/atyr/registro/rce/v002/datatypes" xmlns:ns2="http://bps.gub.uy/v001/datatypes" xmlns:ns3="http://bps.gub.uy/atyr/v003/datatypes" xmlns:ns4="http://bps.gub.uy/atyr/registro/rce/v003/datatypes">
+  <xs:import namespace="http://bps.gub.uy/atyr/registro/rce/v002/datatypes" schemaLocation="WsRegEmpresasService_schema5.xsd"/>
+  <xs:import namespace="http://bps.gub.uy/v001/datatypes" schemaLocation="WsRegEmpresasService_schema1.xsd"/>
+  <xs:import namespace="http://bps.gub.uy/atyr/v003/datatypes" schemaLocation="WsRegEmpresasService_schema3.xsd"/>
+  <xs:import namespace="http://bps.gub.uy/atyr/registro/rce/v003/datatypes" schemaLocation="WsRegEmpresasService_schema4.xsd"/>
+  <xs:complexType name="ParamObtenerEstadosAportacion">
+    <xs:sequence>
+      <xs:element name="fechaDesde" type="xs:date" minOccurs="0"/>
+      <xs:element name="fechaHasta" type="xs:date" minOccurs="0"/>
+      <xs:element name="nroEmpresa" type="xs:string" minOccurs="0"/>
+      <xs:element name="nroIntEmp" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ResultObtenerEstadosAportacion">
+    <xs:sequence>
+      <xs:element name="clave" type="tns:ParamObtenerEstadosAportacion" minOccurs="0"/>
+      <xs:element name="datosAportacionEmpresa" type="ns1:ObjDatosAportacionEmpresa" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="erroresNegocio" type="ns2:ErrorNegocio" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ResultValEmpresa" final="extension restriction">
+    <xs:sequence>
+      <xs:element name="colError" type="ns3:ObjError" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="empresa" type="ns4:ObjEmpresa" minOccurs="0"/>
+      <xs:element name="valido" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

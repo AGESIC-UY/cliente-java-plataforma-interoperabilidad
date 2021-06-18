@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema version="1.0" targetNamespace="http://bps.gub.uy/atyr/registro/rce/v003/datatypes" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://bps.gub.uy/atyr/registro/rce/v003/datatypes" xmlns:ns1="http://bps.gub.uy/atyr/registro/rce/v002/datatypes">
+  <xs:import namespace="http://bps.gub.uy/atyr/registro/rce/v002/datatypes" schemaLocation="WsRegEmpresasService_schema5.xsd"/>
+  <xs:complexType name="ObjPeriodo" final="extension restriction">
+    <xs:sequence>
+      <xs:element name="fechaDesde" type="xs:date" minOccurs="0"/>
+      <xs:element name="fechaHasta" type="xs:date" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ObjEmpresa" final="extension restriction">
+    <xs:sequence>
+      <xs:element name="codEstadoAnulada" type="xs:string" minOccurs="0"/>
+      <xs:element name="denominacion" type="tns:ObjDenominacionPeriodo" minOccurs="0"/>
+      <xs:element name="digitoControl" type="xs:int" minOccurs="0"/>
+      <xs:element name="fechaInicioActividad" type="xs:date" minOccurs="0"/>
+      <xs:element name="nroEmpresa" type="xs:string" minOccurs="0"/>
+      <xs:element name="nroIntEmp" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ObjDenominacionPeriodo" final="extension restriction">
+    <xs:sequence>
+      <xs:element name="denominacion" type="xs:string" minOccurs="0"/>
+      <xs:element name="periodo" type="tns:ObjPeriodo" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ObjContribuyente" final="extension restriction">
+    <xs:sequence>
+      <xs:element name="claveContribuyente" type="xs:string" minOccurs="0"/>
+      <xs:element name="codEstadoAnulado" type="xs:string" minOccurs="0"/>
+      <xs:element name="denominacion" type="tns:ObjDenominacionPeriodo" minOccurs="0"/>
+      <xs:element name="fechaInicioActividad" type="xs:date" minOccurs="0"/>
+      <xs:element name="nroContribuyente" type="xs:string" minOccurs="0"/>
+      <xs:element name="nroIntContr" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ObjRelacionEmpContr">
+    <xs:sequence>
+      <xs:element name="causalDesde" type="ns1:ObjCausal" minOccurs="0"/>
+      <xs:element name="causalHasta" type="ns1:ObjCausal" minOccurs="0"/>
+      <xs:element name="codEstadoAnulado" type="xs:string" minOccurs="0"/>
+      <xs:element name="numeroTramite" type="xs:int" minOccurs="0"/>
+      <xs:element name="periodo" type="tns:ObjPeriodo" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

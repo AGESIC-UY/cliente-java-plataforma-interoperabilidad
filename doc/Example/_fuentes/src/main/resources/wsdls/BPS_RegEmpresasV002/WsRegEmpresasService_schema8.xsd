@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema version="1.0" targetNamespace="http://bps.gub.uy/atyr/registro/empresas/v002/datatypes" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://bps.gub.uy/atyr/registro/empresas/v002/datatypes" xmlns:ns1="http://bps.gub.uy/atyr/registro/rce/v002/datatypes" xmlns:ns2="http://bps.gub.uy/atyr/v003/datatypes" xmlns:ns3="http://bps.gub.uy/atyr/registro/rce/v003/datatypes" xmlns:ns4="http://bps.gub.uy/atyr/registro/rce/v001/datatypes">
+  <xs:import namespace="http://bps.gub.uy/atyr/registro/rce/v002/datatypes" schemaLocation="WsRegEmpresasService_schema5.xsd"/>
+  <xs:import namespace="http://bps.gub.uy/atyr/v003/datatypes" schemaLocation="WsRegEmpresasService_schema3.xsd"/>
+  <xs:import namespace="http://bps.gub.uy/atyr/registro/rce/v003/datatypes" schemaLocation="WsRegEmpresasService_schema4.xsd"/>
+  <xs:import namespace="http://bps.gub.uy/atyr/registro/rce/v001/datatypes" schemaLocation="WsRegEmpresasService_schema6.xsd"/>
+  <xs:complexType name="ParamObtEmpresa" final="extension restriction">
+    <xs:sequence>
+      <xs:element name="nroEmpresa" type="xs:string" minOccurs="0"/>
+      <xs:element name="nroIntEmp" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ResultObtEmpresa" final="extension restriction">
+    <xs:sequence>
+      <xs:element name="aportaciones" type="ns1:ObjDatosAportacionEmpresa" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="colError" type="ns2:ObjError" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="empresa" type="ns3:ObjEmpresa" minOccurs="0"/>
+      <xs:element name="girosEmpresa" type="ns1:ObjGirosEmpresa" minOccurs="0"/>
+      <xs:element name="valido" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ParamObtContribuyenteVigente" final="extension restriction">
+    <xs:sequence>
+      <xs:element name="nroEmpresa" type="xs:string" minOccurs="0"/>
+      <xs:element name="nroIntEmp" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ResultObtContribuyenteVigente" final="extension restriction">
+    <xs:sequence>
+      <xs:element name="colError" type="ns2:ObjError" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="contribuyenteVigente" type="ns1:ObjEmpresaContribuyentes" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="paramObtListaRelContribuyenteEmpresas" final="extension restriction">
+    <xs:sequence>
+      <xs:element name="colParamObtListaRelContribuyente" type="tns:paramObtListaRelContribuyente" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="paramObtListaRelContribuyente" final="extension restriction">
+    <xs:sequence>
+      <xs:element name="fechaDesde" type="xs:date" minOccurs="0"/>
+      <xs:element name="fechaHasta" type="xs:date" minOccurs="0"/>
+      <xs:element name="filtroAnulada" type="xs:int" minOccurs="0"/>
+      <xs:element name="nroEmpresa" type="xs:string" minOccurs="0"/>
+      <xs:element name="nroIntEmp" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ResultObtListaRelContribuyenteEmpresas" final="extension restriction">
+    <xs:sequence>
+      <xs:element name="colError" type="ns2:ObjError" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="colResultObtListaRelContribuyente" type="tns:ResultObtListaRelContribuyente" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ResultObtListaRelContribuyente" final="extension restriction">
+    <xs:sequence>
+      <xs:element name="colError" type="ns2:ObjError" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="contribuyentesRelacionados" type="ns1:ObjEmpresaContribuyentes" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="empresa" type="ns3:ObjEmpresa" minOccurs="0"/>
+      <xs:element name="valido" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ParamObtEstadosAportacion" final="extension restriction">
+    <xs:sequence>
+      <xs:element name="fechaDesde" type="xs:date" minOccurs="0"/>
+      <xs:element name="fechaHasta" type="xs:date" minOccurs="0"/>
+      <xs:element name="nroEmpresa" type="xs:string" minOccurs="0"/>
+      <xs:element name="nroIntEmp" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ResultObtEstadosAportacion" final="extension restriction">
+    <xs:sequence>
+      <xs:element name="colError" type="ns2:ObjError" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="datosAportacionEmpresa" type="ns1:ObjDatosAportacionEmpresa" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ParamObtListaEmpresa" final="extension restriction">
+    <xs:sequence>
+      <xs:element name="denominacion" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ResultObtListaEmpresa" final="extension restriction">
+    <xs:sequence>
+      <xs:element name="colEmpresa" type="ns3:ObjEmpresa" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="colError" type="ns2:ObjError" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ParamObtDomicilioFiscalPpal" final="extension restriction">
+    <xs:sequence>
+      <xs:element name="nroEmpresa" type="xs:string" minOccurs="0"/>
+      <xs:element name="nroIntEmp" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ResultObtDomicilioFiscalPpal" final="extension restriction">
+    <xs:sequence>
+      <xs:element name="colEmails" type="ns4:ObjEmail" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="colError" type="ns2:ObjError" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="colFaxes" type="ns4:ObjFax" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="colTelefonos" type="ns4:ObjTelefono" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="domicilio" type="ns1:ObjDomicilio" minOccurs="0"/>
+      <xs:element name="valido" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ParamValEmpresa" final="extension restriction">
+    <xs:sequence>
+      <xs:element name="nroEmpresa" type="xs:string" minOccurs="0"/>
+      <xs:element name="nroIntEmp" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
