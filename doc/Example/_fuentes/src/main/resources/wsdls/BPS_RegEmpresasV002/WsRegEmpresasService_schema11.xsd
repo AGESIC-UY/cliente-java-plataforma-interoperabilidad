@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema version="1.0" targetNamespace="http://bps.gub.uy/atyr/registro/WsRegEmpresaV002/datatypes" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://bps.gub.uy/atyr/registro/WsRegEmpresaV002/datatypes">
+  <xs:complexType name="LocalEmpresa">
+    <xs:sequence>
+      <xs:element name="ampliacionDomicilio" type="tns:AmpliacionDomicilio" minOccurs="0"/>
+      <xs:element name="departamento" type="tns:Departamento" minOccurs="0"/>
+      <xs:element name="direccion" type="tns:Direccion" minOccurs="0"/>
+      <xs:element name="emails" type="tns:EMail" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="faxes" type="tns:Fax" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="localidad" type="tns:Localidad" minOccurs="0"/>
+      <xs:element name="numeroLocal" type="xs:int" minOccurs="0"/>
+      <xs:element name="periodo" type="tns:ObjPeriodo" minOccurs="0"/>
+      <xs:element name="telefonos" type="tns:Telefono" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="tipoEstablecimiento" type="tns:TipoEstablecimiento" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AmpliacionDomicilio">
+    <xs:sequence>
+      <xs:element name="bloque" type="xs:string" minOccurs="0"/>
+      <xs:element name="complejoHabitacional" type="xs:string" minOccurs="0"/>
+      <xs:element name="kilometro" type="xs:double" minOccurs="0"/>
+      <xs:element name="local" type="xs:string" minOccurs="0"/>
+      <xs:element name="manzana" type="xs:string" minOccurs="0"/>
+      <xs:element name="nivel" type="xs:string" minOccurs="0"/>
+      <xs:element name="observaciones" type="xs:string" minOccurs="0"/>
+      <xs:element name="padron" type="xs:string" minOccurs="0"/>
+      <xs:element name="ruta" type="xs:string" minOccurs="0"/>
+      <xs:element name="seccionJudicial" type="xs:int" minOccurs="0"/>
+      <xs:element name="solar" type="xs:string" minOccurs="0"/>
+      <xs:element name="torre" type="xs:string" minOccurs="0"/>
+      <xs:element name="unidad" type="xs:int" minOccurs="0"/>
+      <xs:element name="zona" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Departamento">
+    <xs:sequence>
+      <xs:element name="codigo" type="xs:int" minOccurs="0"/>
+      <xs:element name="nombre" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Direccion">
+    <xs:sequence>
+      <xs:element name="apto" type="xs:string" minOccurs="0"/>
+      <xs:element name="bis" type="xs:string" minOccurs="0"/>
+      <xs:element name="calle" type="tns:Calle" minOccurs="0"/>
+      <xs:element name="calleEntreDos" type="tns:Calle" minOccurs="0"/>
+      <xs:element name="calleEntreUno" type="tns:Calle" minOccurs="0"/>
+      <xs:element name="codigoPostal" type="tns:CodigoPostal" minOccurs="0"/>
+      <xs:element name="numeroPuerta" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Calle">
+    <xs:sequence>
+      <xs:element name="codigo" type="xs:int" minOccurs="0"/>
+      <xs:element name="nombre" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CodigoPostal">
+    <xs:sequence>
+      <xs:element name="codigoPostal" type="xs:int" minOccurs="0"/>
+      <xs:element name="vigente" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EMail">
+    <xs:sequence>
+      <xs:element name="email" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Fax">
+    <xs:sequence>
+      <xs:element name="fax" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Localidad">
+    <xs:sequence>
+      <xs:element name="codigo" type="xs:int" minOccurs="0"/>
+      <xs:element name="nombre" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ObjPeriodo" final="extension restriction">
+    <xs:sequence>
+      <xs:element name="fechaDesde" type="xs:date" minOccurs="0"/>
+      <xs:element name="fechaHasta" type="xs:date" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Telefono">
+    <xs:sequence>
+      <xs:element name="telefono" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TipoEstablecimiento">
+    <xs:sequence>
+      <xs:element name="codigo" type="xs:int" minOccurs="0"/>
+      <xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

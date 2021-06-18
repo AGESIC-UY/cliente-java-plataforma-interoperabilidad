@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema version="1.0" targetNamespace="http://bps.gub.uy/atyr/registro/empresas/v001/datatypes" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="http://bps.gub.uy/atyr/registro/rce/v003/datatypes" xmlns:tns="http://bps.gub.uy/atyr/registro/empresas/v001/datatypes" xmlns:ns1="http://bps.gub.uy/v001/datatypes" xmlns:ns2="http://bps.gub.uy/atyr/registro/WsRegEmpresaV002/datatypes" xmlns:ns3="http://bps.gub.uy/atyr/registro/empresas/v003/datatypes" xmlns:ns4="http://bps.gub.uy/atyr/v003/datatypes">
+  <xs:import namespace="http://bps.gub.uy/v001/datatypes" schemaLocation="WsRegEmpresasService_schema1.xsd"/>
+  <xs:import namespace="http://bps.gub.uy/atyr/registro/WsRegEmpresaV002/datatypes" schemaLocation="WsRegEmpresasService_schema11.xsd"/>
+  <xs:import namespace="http://bps.gub.uy/atyr/registro/empresas/v003/datatypes" schemaLocation="WsRegEmpresasService_schema7.xsd"/>
+  <xs:import namespace="http://bps.gub.uy/atyr/v003/datatypes" schemaLocation="WsRegEmpresasService_schema3.xsd"/>
+  <xs:import namespace="http://bps.gub.uy/atyr/registro/rce/v003/datatypes" schemaLocation="WsRegEmpresasService_schema4.xsd"/>
+  <xs:complexType name="ParamObtenerLocales">
+    <xs:sequence>
+      <xs:element name="fechaDesde" type="xs:date" minOccurs="0"/>
+      <xs:element name="fechaHasta" type="xs:date" minOccurs="0"/>
+      <xs:element name="nroEmpresa" type="xs:string" minOccurs="0"/>
+      <xs:element name="nroIntEmp" type="xs:int" minOccurs="0"/>
+      <xs:element name="nroLocal" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ResultObtenerLocales">
+    <xs:sequence>
+      <xs:element name="erroresNegocio" type="ns1:ErrorNegocio" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="localesEmpresa" type="ns2:LocalEmpresa" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ParamObtenerListaEstadosAportacion">
+    <xs:sequence>
+      <xs:element name="paramsObtenerEstadosAportacion" type="ns3:ParamObtenerEstadosAportacion" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ResultObtenerListaEstadosAportacion">
+    <xs:sequence>
+      <xs:element name="erroresNegocio" type="ns1:ErrorNegocio" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="resultsObtenerEstadosAportacion" type="ns3:ResultObtenerEstadosAportacion" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="paramObtAtributoEspecialEmpresa" final="extension restriction">
+    <xs:sequence>
+      <xs:element name="claveContribuyente" type="xs:string" minOccurs="0"/>
+      <xs:element name="codAportacion" type="xs:int" minOccurs="0"/>
+      <xs:element name="codsAtributosEspeciales" type="xs:int" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="fechaDesde" type="xs:date" minOccurs="0"/>
+      <xs:element name="fechaHasta" type="xs:date" minOccurs="0"/>
+      <xs:element name="nroEmpresa" type="xs:string" minOccurs="0"/>
+      <xs:element name="nroExtContribuyente" type="xs:string" minOccurs="0"/>
+      <xs:element name="nroIntContribuyente" type="xs:int" minOccurs="0"/>
+      <xs:element name="nroIntEmp" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="resultObtAtributosEspecialesEmpresa" final="extension restriction">
+    <xs:sequence>
+      <xs:element name="colError" type="ns4:ObjError" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="contribuyentesAportacionesAE" type="tns:ObjContribuyenteAportacionAE" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="valido" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ObjContribuyenteAportacionAE">
+    <xs:sequence>
+      <xs:element name="aportacionesAE" type="tns:ObjAportacionAE" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="contribuyente" type="ns5:ObjContribuyente" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ObjAportacionAE">
+    <xs:sequence>
+      <xs:element name="aportacion" type="tns:objGenericCodeInt" minOccurs="0"/>
+      <xs:element name="atributosEspeciales" type="tns:ObjAEPeriodo" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="objGenericCodeInt" final="extension restriction">
+    <xs:sequence>
+      <xs:element name="codAportacion" type="xs:int" minOccurs="0"/>
+      <xs:element name="descAportacion" type="xs:string" minOccurs="0"/>
+      <xs:element name="vigente" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ObjAEPeriodo">
+    <xs:sequence>
+      <xs:element name="atributoEspecial" type="tns:ObjAEEmp" minOccurs="0"/>
+      <xs:element name="causal" type="tns:objGenericCodeInt" minOccurs="0"/>
+      <xs:element name="codArea" type="xs:int" minOccurs="0"/>
+      <xs:element name="periodo" type="ns5:ObjPeriodo" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ObjAEEmp" final="extension restriction">
+    <xs:sequence>
+      <xs:element name="codAtributoEspecialEmpresa" type="xs:int" minOccurs="0"/>
+      <xs:element name="descAtributoEspecialEmpresa" type="xs:string" minOccurs="0"/>
+      <xs:element name="vigente" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

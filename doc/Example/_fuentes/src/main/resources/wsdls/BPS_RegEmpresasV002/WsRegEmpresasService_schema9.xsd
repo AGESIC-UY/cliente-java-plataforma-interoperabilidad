@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema version="1.0" targetNamespace="http://bps.gub.uy/atyr/registro/empresas/v002" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://bps.gub.uy/atyr/registro/empresas/v002" xmlns:ns1="http://bps.gub.uy/atyr/registro/empresas/v001/datatypes" xmlns:ns2="http://bps.gub.uy/atyr/registro/empresas/v002/datatypes" xmlns:ns3="http://bps.gub.uy/generics/results" xmlns:ns4="http://bps.gub.uy/atyr/registro/empresas/v003/datatypes">
+  <xs:import namespace="http://bps.gub.uy/atyr/registro/empresas/v001/datatypes" schemaLocation="WsRegEmpresasService_schema10.xsd"/>
+  <xs:import namespace="http://bps.gub.uy/atyr/registro/empresas/v002/datatypes" schemaLocation="WsRegEmpresasService_schema8.xsd"/>
+  <xs:import namespace="http://bps.gub.uy/generics/results" schemaLocation="WsRegEmpresasService_schema2.xsd"/>
+  <xs:import namespace="http://bps.gub.uy/atyr/registro/empresas/v003/datatypes" schemaLocation="WsRegEmpresasService_schema7.xsd"/>
+  <xs:element name="obtContribuyenteVigente" type="tns:obtContribuyenteVigente"/>
+  <xs:element name="obtContribuyenteVigenteResponse" type="tns:obtContribuyenteVigenteResponse"/>
+  <xs:element name="obtDomicilioFiscalPpal" type="tns:obtDomicilioFiscalPpal"/>
+  <xs:element name="obtDomicilioFiscalPpalResponse" type="tns:obtDomicilioFiscalPpalResponse"/>
+  <xs:element name="obtListaRelContribuyenteEmpresas" type="tns:obtListaRelContribuyenteEmpresas"/>
+  <xs:element name="obtListaRelContribuyenteEmpresasResponse" type="tns:obtListaRelContribuyenteEmpresasResponse"/>
+  <xs:element name="obtVersion" type="tns:obtVersion"/>
+  <xs:element name="obtVersionResponse" type="tns:obtVersionResponse"/>
+  <xs:element name="obtenerAtributosEspeciales" type="tns:obtenerAtributosEspeciales"/>
+  <xs:element name="obtenerAtributosEspecialesResponse" type="tns:obtenerAtributosEspecialesResponse"/>
+  <xs:element name="obtenerEmpresa" type="tns:obtenerEmpresa"/>
+  <xs:element name="obtenerEmpresaResponse" type="tns:obtenerEmpresaResponse"/>
+  <xs:element name="obtenerEstadosAportacion" type="tns:obtenerEstadosAportacion"/>
+  <xs:element name="obtenerEstadosAportacionResponse" type="tns:obtenerEstadosAportacionResponse"/>
+  <xs:element name="obtenerListaEmpresa" type="tns:obtenerListaEmpresa"/>
+  <xs:element name="obtenerListaEmpresaResponse" type="tns:obtenerListaEmpresaResponse"/>
+  <xs:element name="obtenerListaEstadosAportacion" type="tns:obtenerListaEstadosAportacion"/>
+  <xs:element name="obtenerListaEstadosAportacionResponse" type="tns:obtenerListaEstadosAportacionResponse"/>
+  <xs:element name="obtenerListaRelContribuyente" type="tns:obtenerListaRelContribuyente"/>
+  <xs:element name="obtenerListaRelContribuyenteResponse" type="tns:obtenerListaRelContribuyenteResponse"/>
+  <xs:element name="obtenerLocales" type="tns:obtenerLocales"/>
+  <xs:element name="obtenerLocalesResponse" type="tns:obtenerLocalesResponse"/>
+  <xs:element name="validarEmpresa" type="tns:validarEmpresa"/>
+  <xs:element name="validarEmpresaResponse" type="tns:validarEmpresaResponse"/>
+  <xs:complexType name="obtenerLocales">
+    <xs:sequence>
+      <xs:element name="paramObtenerLocales" type="ns1:ParamObtenerLocales" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerLocalesResponse">
+    <xs:sequence>
+      <xs:element name="resultobtenerLocales" type="ns1:ResultObtenerLocales" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerEmpresa">
+    <xs:sequence>
+      <xs:element name="paramObtEmpresa" type="ns2:ParamObtEmpresa" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerEmpresaResponse">
+    <xs:sequence>
+      <xs:element name="resultObtEmpresa" type="ns2:ResultObtEmpresa" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerListaEstadosAportacion">
+    <xs:sequence>
+      <xs:element name="paramObtenerListaEstadosAportacion" type="ns1:ParamObtenerListaEstadosAportacion" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerListaEstadosAportacionResponse">
+    <xs:sequence>
+      <xs:element name="resultObtenerListaEstadosAportacion" type="ns1:ResultObtenerListaEstadosAportacion" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtVersion">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="obtVersionResponse">
+    <xs:sequence>
+      <xs:element name="ResultobtVersion" type="ns3:ResultobtVersion" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerAtributosEspeciales">
+    <xs:sequence>
+      <xs:element name="paramObtAtributoEspecialEmpresa" type="ns1:paramObtAtributoEspecialEmpresa" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerAtributosEspecialesResponse">
+    <xs:sequence>
+      <xs:element name="resultObtAtributosEspecialesEmpresa" type="ns1:resultObtAtributosEspecialesEmpresa" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtContribuyenteVigente">
+    <xs:sequence>
+      <xs:element name="paramObtContribuyenteVigente" type="ns2:ParamObtContribuyenteVigente" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtContribuyenteVigenteResponse">
+    <xs:sequence>
+      <xs:element name="resultObtContribuyenteVigente" type="ns2:ResultObtContribuyenteVigente" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtListaRelContribuyenteEmpresas">
+    <xs:sequence>
+      <xs:element name="paramObtListaRelContribuyenteEmpresas" type="ns2:paramObtListaRelContribuyenteEmpresas" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtListaRelContribuyenteEmpresasResponse">
+    <xs:sequence>
+      <xs:element name="resultObtListaRelContribuyenteEmpresas" type="ns2:ResultObtListaRelContribuyenteEmpresas" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerListaRelContribuyente">
+    <xs:sequence>
+      <xs:element name="paramObtListaRelContribuyente" type="ns2:paramObtListaRelContribuyente" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerListaRelContribuyenteResponse">
+    <xs:sequence>
+      <xs:element name="resultObtListaRelContribuyente" type="ns2:ResultObtListaRelContribuyente" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerEstadosAportacion">
+    <xs:sequence>
+      <xs:element name="paramObtEstadosAportacion" type="ns2:ParamObtEstadosAportacion" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerEstadosAportacionResponse">
+    <xs:sequence>
+      <xs:element name="resultObtEstadosAportacion" type="ns2:ResultObtEstadosAportacion" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerListaEmpresa">
+    <xs:sequence>
+      <xs:element name="paramObtListaEmpresaEmpresa" type="ns2:ParamObtListaEmpresa" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtenerListaEmpresaResponse">
+    <xs:sequence>
+      <xs:element name="resultObtListaEmpresa" type="ns2:ResultObtListaEmpresa" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtDomicilioFiscalPpal">
+    <xs:sequence>
+      <xs:element name="paramObtDomicilioFiscalPpal" type="ns2:ParamObtDomicilioFiscalPpal" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="obtDomicilioFiscalPpalResponse">
+    <xs:sequence>
+      <xs:element name="resultObtDomicilioFiscalPpal" type="ns2:ResultObtDomicilioFiscalPpal" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="validarEmpresa">
+    <xs:sequence>
+      <xs:element name="paramValEmpresa" type="ns2:ParamValEmpresa" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="validarEmpresaResponse">
+    <xs:sequence>
+      <xs:element name="resultValEmpresa" type="ns4:ResultValEmpresa" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

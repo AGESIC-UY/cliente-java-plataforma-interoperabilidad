@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="ServiciosSessionRemote" targetNamespace="http://remote.bean.certpyme.sofis.com/" xmlns:ns1="http://remote.bean.certpyme.sofis.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://remote.bean.certpyme.sofis.com/" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://remote.bean.certpyme.sofis.com/">
+  <xs:element name="getCertificadoCCPByCodigo" type="tns:getCertificadoCCPByCodigo"/>
+  <xs:element name="getCertificadoCCPByCodigoResponse" type="tns:getCertificadoCCPByCodigoResponse"/>
+  <xs:element name="getCertificadoPymeByRUT" type="tns:getCertificadoPymeByRUT"/>
+  <xs:element name="getCertificadoPymeByRUTResponse" type="tns:getCertificadoPymeByRUTResponse"/>
+  <xs:element name="version" type="tns:version"/>
+  <xs:element name="versionResponse" type="tns:versionResponse"/>
+  <xs:complexType name="version">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="versionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="version" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getCertificadoCCPByCodigo">
+    <xs:sequence>
+      <xs:element name="codigo" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getCertificadoCCPByCodigoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="certificado" type="tns:responseCertificadoCCP"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="responseCertificadoCCP">
+    <xs:sequence>
+      <xs:element name="code" type="xs:int"/>
+      <xs:element minOccurs="0" name="desc" type="xs:string"/>
+      <xs:element minOccurs="0" name="rut" type="xs:string"/>
+      <xs:element minOccurs="0" name="razonSocial" type="xs:string"/>
+      <xs:element minOccurs="0" name="tipoLicitacion" type="xs:string"/>
+      <xs:element minOccurs="0" name="numLicitacion" type="xs:string"/>
+      <xs:element minOccurs="0" name="organismo" type="xs:string"/>
+      <xs:element minOccurs="0" name="fechaLicitacion" type="xs:dateTime"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mensaje">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codMensaje" type="xs:string"/>
+      <xs:element minOccurs="0" name="descMensaje" type="xs:string"/>
+      <xs:element minOccurs="0" name="tipoMensaje" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getCertificadoPymeByRUT">
+    <xs:sequence>
+      <xs:element name="rut" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getCertificadoPymeByRUTResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="certificado" type="tns:responseCertificadoPyme"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="responseCertificadoPyme">
+    <xs:sequence>
+      <xs:element name="code" type="xs:int"/>
+      <xs:element minOccurs="0" name="desc" type="xs:string"/>
+      <xs:element minOccurs="0" name="rut" type="xs:string"/>
+      <xs:element minOccurs="0" name="razonSocial" type="xs:string"/>
+      <xs:element minOccurs="0" name="tipoDeSociedad" type="xs:string"/>
+      <xs:element minOccurs="0" name="numCertificado" type="xs:string"/>
+      <xs:element minOccurs="0" name="categoria" type="xs:string"/>
+      <xs:element minOccurs="0" name="vigencia" type="xs:dateTime"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SofisServiceException" type="tns:SofisServiceException"/>
+  <xs:complexType name="SofisServiceException">
+    <xs:sequence>
+      <xs:element name="descripcion" nillable="true" type="xs:string"/>
+      <xs:element name="numeroError" nillable="true" type="xs:int"/>
+      <xs:element name="codigo" nillable="true" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="mensajes" type="tns:mensaje"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getCertificadoPymeByRUTResponse">
+    <wsdl:part name="parameters" element="ns1:getCertificadoPymeByRUTResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SofisServiceException">
+    <wsdl:part name="SofisServiceException" element="ns1:SofisServiceException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCertificadoCCPByCodigo">
+    <wsdl:part name="parameters" element="ns1:getCertificadoCCPByCodigo">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCertificadoPymeByRUT">
+    <wsdl:part name="parameters" element="ns1:getCertificadoPymeByRUT">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCertificadoCCPByCodigoResponse">
+    <wsdl:part name="parameters" element="ns1:getCertificadoCCPByCodigoResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="versionResponse">
+    <wsdl:part name="parameters" element="ns1:versionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="version">
+    <wsdl:part name="parameters" element="ns1:version">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ServiciosSessionRemote">
+    <wsdl:operation name="version">
+      <wsdl:input name="version" message="ns1:version">
+    </wsdl:input>
+      <wsdl:output name="versionResponse" message="ns1:versionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCertificadoCCPByCodigo">
+      <wsdl:input name="getCertificadoCCPByCodigo" message="ns1:getCertificadoCCPByCodigo">
+    </wsdl:input>
+      <wsdl:output name="getCertificadoCCPByCodigoResponse" message="ns1:getCertificadoCCPByCodigoResponse">
+    </wsdl:output>
+      <wsdl:fault name="SofisServiceException" message="ns1:SofisServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getCertificadoPymeByRUT">
+      <wsdl:input name="getCertificadoPymeByRUT" message="ns1:getCertificadoPymeByRUT">
+    </wsdl:input>
+      <wsdl:output name="getCertificadoPymeByRUTResponse" message="ns1:getCertificadoPymeByRUTResponse">
+    </wsdl:output>
+      <wsdl:fault name="SofisServiceException" message="ns1:SofisServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

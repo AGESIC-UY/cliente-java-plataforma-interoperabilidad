@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions name="CertificadosService" targetNamespace="http://implemantation.bean.certpyme.sofis.com/" xmlns:ns1="http://remote.bean.certpyme.sofis.com/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://implemantation.bean.certpyme.sofis.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:import location="DINAPYME_ServiciosSessionRemote.wsdl" namespace="http://remote.bean.certpyme.sofis.com/">
+    </wsdl:import>
+  <wsdl:binding name="CertificadosServiceSoapBinding" type="ns1:ServiciosSessionRemote">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="version">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="version">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="versionResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCertificadoCCPByCodigo">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getCertificadoCCPByCodigo">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getCertificadoCCPByCodigoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SofisServiceException">
+        <soap:fault name="SofisServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getCertificadoPymeByRUT">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getCertificadoPymeByRUT">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getCertificadoPymeByRUTResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SofisServiceException">
+        <soap:fault name="SofisServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CertificadosService">
+    <wsdl:port binding="tns:CertificadosServiceSoapBinding" name="ServiciosSessionBeanPort">
+      <soap:address location="http://testservicios.pge.red.uy/dinapyme/certificados"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

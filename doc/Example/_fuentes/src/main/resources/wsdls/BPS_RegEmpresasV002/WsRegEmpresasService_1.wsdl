@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="WsRegEmpresasService" targetNamespace="http://bps.gub.uy/atyr/registro/empresas/v002" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://bps.gub.uy/atyr/registro/empresas/v002" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+    <xsd:schema>
+      <xsd:import namespace="http://bps.gub.uy/v001/datatypes" schemaLocation="WsRegEmpresasService_schema1.xsd"/>
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import namespace="http://bps.gub.uy/generics/results" schemaLocation="WsRegEmpresasService_schema2.xsd"/>
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import namespace="http://bps.gub.uy/atyr/v003/datatypes" schemaLocation="WsRegEmpresasService_schema3.xsd"/>
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import namespace="http://bps.gub.uy/atyr/registro/rce/v003/datatypes" schemaLocation="WsRegEmpresasService_schema4.xsd"/>
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import namespace="http://bps.gub.uy/atyr/registro/rce/v002/datatypes" schemaLocation="WsRegEmpresasService_schema5.xsd"/>
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import namespace="http://bps.gub.uy/atyr/registro/rce/v001/datatypes" schemaLocation="WsRegEmpresasService_schema6.xsd"/>
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import namespace="http://bps.gub.uy/atyr/registro/empresas/v003/datatypes" schemaLocation="WsRegEmpresasService_schema7.xsd"/>
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import namespace="http://bps.gub.uy/atyr/registro/empresas/v002/datatypes" schemaLocation="WsRegEmpresasService_schema8.xsd"/>
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import namespace="http://bps.gub.uy/atyr/registro/empresas/v002" schemaLocation="WsRegEmpresasService_schema9.xsd"/>
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import namespace="http://bps.gub.uy/atyr/registro/empresas/v001/datatypes" schemaLocation="WsRegEmpresasService_schema10.xsd"/>
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import namespace="http://bps.gub.uy/atyr/registro/WsRegEmpresaV002/datatypes" schemaLocation="WsRegEmpresasService_schema11.xsd"/>
+    </xsd:schema>
+  </types>
+  <message name="validarEmpresa">
+    <part name="parameters" element="tns:validarEmpresa"/>
+  </message>
+  <message name="obtenerListaEstadosAportacionResponse">
+    <part name="parameters" element="tns:obtenerListaEstadosAportacionResponse"/>
+  </message>
+  <message name="obtenerEmpresaResponse">
+    <part name="parameters" element="tns:obtenerEmpresaResponse"/>
+  </message>
+  <message name="obtenerAtributosEspecialesResponse">
+    <part name="parameters" element="tns:obtenerAtributosEspecialesResponse"/>
+  </message>
+  <message name="obtenerListaRelContribuyenteResponse">
+    <part name="parameters" element="tns:obtenerListaRelContribuyenteResponse"/>
+  </message>
+  <message name="obtenerLocalesResponse">
+    <part name="parameters" element="tns:obtenerLocalesResponse"/>
+  </message>
+  <message name="obtVersion">
+    <part name="parameters" element="tns:obtVersion"/>
+  </message>
+  <message name="obtenerEstadosAportacion">
+    <part name="parameters" element="tns:obtenerEstadosAportacion"/>
+  </message>
+  <message name="obtenerEstadosAportacionResponse">
+    <part name="parameters" element="tns:obtenerEstadosAportacionResponse"/>
+  </message>
+  <message name="obtenerListaEmpresa">
+    <part name="parameters" element="tns:obtenerListaEmpresa"/>
+  </message>
+  <message name="validarEmpresaResponse">
+    <part name="parameters" element="tns:validarEmpresaResponse"/>
+  </message>
+  <message name="obtListaRelContribuyenteEmpresas">
+    <part name="parameters" element="tns:obtListaRelContribuyenteEmpresas"/>
+  </message>
+  <message name="obtenerListaEstadosAportacion">
+    <part name="parameters" element="tns:obtenerListaEstadosAportacion"/>
+  </message>
+  <message name="obtContribuyenteVigente">
+    <part name="parameters" element="tns:obtContribuyenteVigente"/>
+  </message>
+  <message name="obtDomicilioFiscalPpal">
+    <part name="parameters" element="tns:obtDomicilioFiscalPpal"/>
+  </message>
+  <message name="obtenerLocales">
+    <part name="parameters" element="tns:obtenerLocales"/>
+  </message>
+  <message name="obtenerListaEmpresaResponse">
+    <part name="parameters" element="tns:obtenerListaEmpresaResponse"/>
+  </message>
+  <message name="obtenerEmpresa">
+    <part name="parameters" element="tns:obtenerEmpresa"/>
+  </message>
+  <message name="obtListaRelContribuyenteEmpresasResponse">
+    <part name="parameters" element="tns:obtListaRelContribuyenteEmpresasResponse"/>
+  </message>
+  <message name="obtenerAtributosEspeciales">
+    <part name="parameters" element="tns:obtenerAtributosEspeciales"/>
+  </message>
+  <message name="obtenerListaRelContribuyente">
+    <part name="parameters" element="tns:obtenerListaRelContribuyente"/>
+  </message>
+  <message name="obtContribuyenteVigenteResponse">
+    <part name="parameters" element="tns:obtContribuyenteVigenteResponse"/>
+  </message>
+  <message name="obtVersionResponse">
+    <part name="parameters" element="tns:obtVersionResponse"/>
+  </message>
+  <message name="obtDomicilioFiscalPpalResponse">
+    <part name="parameters" element="tns:obtDomicilioFiscalPpalResponse"/>
+  </message>
+  <portType name="WsRegEmpresaV002">
+    <operation name="obtContribuyenteVigente">
+      <input message="tns:obtContribuyenteVigente"/>
+      <output message="tns:obtContribuyenteVigenteResponse"/>
+    </operation>
+    <operation name="obtDomicilioFiscalPpal">
+      <input message="tns:obtDomicilioFiscalPpal"/>
+      <output message="tns:obtDomicilioFiscalPpalResponse"/>
+    </operation>
+    <operation name="obtenerEmpresa">
+      <input message="tns:obtenerEmpresa"/>
+      <output message="tns:obtenerEmpresaResponse"/>
+    </operation>
+    <operation name="obtenerEstadosAportacion">
+      <input message="tns:obtenerEstadosAportacion"/>
+      <output message="tns:obtenerEstadosAportacionResponse"/>
+    </operation>
+    <operation name="obtenerListaEstadosAportacion">
+      <input message="tns:obtenerListaEstadosAportacion"/>
+      <output message="tns:obtenerListaEstadosAportacionResponse"/>
+    </operation>
+    <operation name="obtenerListaEmpresa">
+      <input message="tns:obtenerListaEmpresa"/>
+      <output message="tns:obtenerListaEmpresaResponse"/>
+    </operation>
+    <operation name="obtenerListaRelContribuyente">
+      <input message="tns:obtenerListaRelContribuyente"/>
+      <output message="tns:obtenerListaRelContribuyenteResponse"/>
+    </operation>
+    <operation name="obtListaRelContribuyenteEmpresas">
+      <input message="tns:obtListaRelContribuyenteEmpresas"/>
+      <output message="tns:obtListaRelContribuyenteEmpresasResponse"/>
+    </operation>
+    <operation name="validarEmpresa">
+      <input message="tns:validarEmpresa"/>
+      <output message="tns:validarEmpresaResponse"/>
+    </operation>
+    <operation name="obtenerAtributosEspeciales">
+      <input message="tns:obtenerAtributosEspeciales"/>
+      <output message="tns:obtenerAtributosEspecialesResponse"/>
+    </operation>
+    <operation name="obtenerLocales">
+      <input message="tns:obtenerLocales"/>
+      <output message="tns:obtenerLocalesResponse"/>
+    </operation>
+    <operation name="obtVersion">
+      <input message="tns:obtVersion"/>
+      <output message="tns:obtVersionResponse"/>
+    </operation>
+  </portType>
+  <binding name="WsRegEmpresasV002Binding" type="tns:WsRegEmpresaV002">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="obtContribuyenteVigente">
+      <soap:operation soapAction="obtContribuyenteVigente"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="obtDomicilioFiscalPpal">
+      <soap:operation soapAction="obtDomicilioFiscalPpal"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="obtenerEmpresa">
+      <soap:operation soapAction="obtenerEmpresa"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="obtenerEstadosAportacion">
+      <soap:operation soapAction="obtenerEstadosAportacion"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="obtenerListaEstadosAportacion">
+      <soap:operation soapAction="obtenerListaEstadosAportacion"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="obtenerListaEmpresa">
+      <soap:operation soapAction="obtenerListaEmpresa"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="obtenerListaRelContribuyente">
+      <soap:operation soapAction="obtenerListaRelContribuyente"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="obtListaRelContribuyenteEmpresas">
+      <soap:operation soapAction="obtListaRelContribuyenteEmpresas"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="validarEmpresa">
+      <soap:operation soapAction="validarEmpresa"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="obtenerAtributosEspeciales">
+      <soap:operation soapAction="obtenerAtributosEspeciales"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="obtenerLocales">
+      <soap:operation soapAction="obtenerLocales"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="obtVersion">
+      <soap:operation soapAction="obtVersion"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="WsRegEmpresasService">
+    <port name="WsRegEmpresasV002" binding="tns:WsRegEmpresasV002Binding">
+      <soap:address location="http://w3ibmp.bps.net:83/RegEmpWsRouter/WsRegEmpresasService"/>
+    </port>
+  </service>
+</definitions>

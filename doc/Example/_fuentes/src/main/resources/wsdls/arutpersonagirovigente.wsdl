@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap11="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp200409="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsp200607="http://www.w3.org/2006/07/ws-policy" xmlns:ns0="DGI_ServicioExternoGiro" targetNamespace="DGI_ServicioExternoGiro">
+<wsdl:types xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema>
+<xsd:import schemaLocation="arutpersonagirovigente.xsd1.xsd" namespace="DGI_ServicioExternoGiro"/></xsd:schema></wsdl:types>
+<wsdl:message name="RUTPersonaGiroVigente.ExecuteSoapIn">
+<wsdl:part name="parameters" element="xsns:RUTPersonaGiroVigente.Execute" xmlns:xsns="DGI_ServicioExternoGiro"/></wsdl:message>
+<wsdl:message name="RUTPersonaGiroVigente.ExecuteSoapOut">
+<wsdl:part name="parameters" element="xsns:RUTPersonaGiroVigente.ExecuteResponse" xmlns:xsns="DGI_ServicioExternoGiro"/></wsdl:message>
+<wsdl:portType name="RUTPersonaGiroVigenteSoapPort">
+<wsdl:operation name="Execute">
+<wsdl:input name="ExecuteRequest" message="ns0:RUTPersonaGiroVigente.ExecuteSoapIn"/>
+<wsdl:output name="ExecuteResponse" message="ns0:RUTPersonaGiroVigente.ExecuteSoapOut"/></wsdl:operation></wsdl:portType>
+<wsdl:binding name="RUTPersonaGiroVigenteSoapBinding" type="ns0:RUTPersonaGiroVigenteSoapPort">
+<soap11:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+<wsdl:operation name="Execute">
+<soap11:operation soapAction="DGI_ServicioExternoGiroaction/ARUTPERSONAGIROVIGENTE.Execute" style="document"/>
+<wsdl:input name="ExecuteRequest">
+<soap11:body use="literal"/></wsdl:input>
+<wsdl:output name="ExecuteResponse">
+<soap11:body use="literal"/></wsdl:output></wsdl:operation></wsdl:binding>
+<wsdl:service name="RUTPersonaGiroVigente">
+<wsdl:port name="RUTPersonaGiroVigenteSoapPort" binding="ns0:RUTPersonaGiroVigenteSoapBinding">
+<soap11:address location=""/></wsdl:port></wsdl:service></wsdl:definitions>

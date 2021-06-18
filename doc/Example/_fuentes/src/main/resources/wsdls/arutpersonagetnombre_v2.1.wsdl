@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="RUTPersonaGetNombre" targetNamespace="http://rutpersonagetnombre.dgi.gub.uy" xmlns:tns="http://rutpersonagetnombre.dgi.gub.uy" xmlns:wsdlns="http://rutpersonagetnombre.dgi.gub.uy" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/"  xmlns:dgi="DGI_Modernizacion_Consolidado">
+	<types>
+		<schema targetNamespace="DGI_Modernizacion_Consolidado" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/">
+			<element name="RUTPersonaGetNombre.Execute">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Rut" type="xsd:string"/>
+						<element minOccurs="1" maxOccurs="1" name="Tipodoc_id" type="xsd:byte"/>
+					</sequence>
+				</complexType>
+			</element>
+			<element name="RUTPersonaGetNombre.ExecuteResponse">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Data" type="xsd:string"/>
+						<element minOccurs="1" maxOccurs="1" name="Mensajes" type="xsd:string"/>
+					</sequence>
+				</complexType>
+			</element>
+		</schema>
+	</types>
+	<message name="RUTPersonaGetNombre.ExecuteSoapIn">
+		<part name="parameters" element="dgi:RUTPersonaGetNombre.Execute"/>
+	</message>
+	<message name="RUTPersonaGetNombre.ExecuteSoapOut">
+		<part name="parameters" element="dgi:RUTPersonaGetNombre.ExecuteResponse"/>
+	</message>
+	<portType name="RUTPersonaGetNombreSoapPort">
+		<operation name="Execute">
+			<input message="wsdlns:RUTPersonaGetNombre.ExecuteSoapIn"/>
+			<output message="wsdlns:RUTPersonaGetNombre.ExecuteSoapOut"/>
+		</operation>
+	</portType>
+	<binding name="RUTPersonaGetNombreSoapBinding" type="wsdlns:RUTPersonaGetNombreSoapPort">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="Execute">
+			<soap:operation soapAction="DGI_Modernizacion_Consolidadoaction/ARUTPERSONAGETNOMBRE.Execute"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<service name="RUTPersonaGetNombre">
+		<port name="RUTPersonaGetNombreSoapPort" binding="wsdlns:RUTPersonaGetNombreSoapBinding">
+			<soap:address location="http://testservicios.pge.red.uy/dgi/PersonaGiroVigente"/>
+		</port>
+	</service>
+</definitions>
