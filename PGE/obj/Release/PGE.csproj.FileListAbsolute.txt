@@ -1,0 +1,6 @@
+C:\Documents and Settings\minzaurralde.HG\Mis documentos\Proyectos\AGESIC\PGE\Archivos Guzman\Aplicacion Nacidos Vivos .NET\PGE\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\minzaurralde.HG\Mis documentos\Proyectos\AGESIC\PGE\Archivos Guzman\Aplicacion Nacidos Vivos .NET\PGE\bin\Release\Agesic.PGE.dll.config
+C:\Documents and Settings\minzaurralde.HG\Mis documentos\Proyectos\AGESIC\PGE\Archivos Guzman\Aplicacion Nacidos Vivos .NET\PGE\bin\Release\Agesic.PGE.dll
+C:\Documents and Settings\minzaurralde.HG\Mis documentos\Proyectos\AGESIC\PGE\Archivos Guzman\Aplicacion Nacidos Vivos .NET\PGE\bin\Release\Agesic.PGE.pdb
+C:\Documents and Settings\minzaurralde.HG\Mis documentos\Proyectos\AGESIC\PGE\Archivos Guzman\Aplicacion Nacidos Vivos .NET\PGE\obj\Release\Agesic.PGE.dll
+C:\Documents and Settings\minzaurralde.HG\Mis documentos\Proyectos\AGESIC\PGE\Archivos Guzman\Aplicacion Nacidos Vivos .NET\PGE\obj\Release\Agesic.PGE.pdb

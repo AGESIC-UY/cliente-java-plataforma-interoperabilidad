@@ -1,0 +1,54 @@
+C:\Documents and Settings\minzaurralde.HG\Mis documentos\Proyectos\AGESIC\PGE\Archivos Guzman\Aplicacion Nacidos Vivos .NET\PGE\bin\Debug\Agesic.PGE.dll.config
+C:\Documents and Settings\minzaurralde.HG\Mis documentos\Proyectos\AGESIC\PGE\Archivos Guzman\Aplicacion Nacidos Vivos .NET\PGE\bin\Debug\Agesic.PGE.dll
+C:\Documents and Settings\minzaurralde.HG\Mis documentos\Proyectos\AGESIC\PGE\Archivos Guzman\Aplicacion Nacidos Vivos .NET\PGE\bin\Debug\Agesic.PGE.pdb
+C:\Documents and Settings\minzaurralde.HG\Mis documentos\Proyectos\AGESIC\PGE\Archivos Guzman\Aplicacion Nacidos Vivos .NET\PGE\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\minzaurralde.HG\Mis documentos\Proyectos\AGESIC\PGE\Archivos Guzman\Aplicacion Nacidos Vivos .NET\PGE\obj\Debug\Agesic.PGE.dll
+C:\Documents and Settings\minzaurralde.HG\Mis documentos\Proyectos\AGESIC\PGE\Archivos Guzman\Aplicacion Nacidos Vivos .NET\PGE\obj\Debug\Agesic.PGE.pdb
+C:\Documents and Settings\minzaurralde.HG\Mis documentos\Proyectos\AGESIC\PGE\Cliente .NET\Cliente Richard\PGE\bin\Debug\Agesic.PGE.dll.config
+C:\Documents and Settings\minzaurralde.HG\Mis documentos\Proyectos\AGESIC\PGE\Cliente .NET\Cliente Richard\PGE\bin\Debug\Agesic.PGE.dll
+C:\Documents and Settings\minzaurralde.HG\Mis documentos\Proyectos\AGESIC\PGE\Cliente .NET\Cliente Richard\PGE\bin\Debug\Agesic.PGE.pdb
+C:\Documents and Settings\minzaurralde.HG\Mis documentos\Proyectos\AGESIC\PGE\Cliente .NET\Cliente Richard\PGE\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\minzaurralde.HG\Mis documentos\Proyectos\AGESIC\PGE\Cliente .NET\Cliente Richard\PGE\obj\Debug\Agesic.PGE.dll
+C:\Documents and Settings\minzaurralde.HG\Mis documentos\Proyectos\AGESIC\PGE\Cliente .NET\Cliente Richard\PGE\obj\Debug\Agesic.PGE.pdb
+C:\Users\minzaurralde\Documents\Proyectos\AGESIC\PGE\Cliente .NET\Cliente Richard\PGE\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\minzaurralde\Documents\Proyectos\AGESIC\PGE\Cliente .NET\Cliente Richard\PGE\bin\Debug\Agesic.PGE.dll.config
+C:\Users\minzaurralde\Documents\Proyectos\AGESIC\PGE\Cliente .NET\Cliente Richard\PGE\bin\Debug\Agesic.PGE.dll
+C:\Users\minzaurralde\Documents\Proyectos\AGESIC\PGE\Cliente .NET\Cliente Richard\PGE\bin\Debug\Agesic.PGE.pdb
+C:\Users\minzaurralde\Documents\Proyectos\AGESIC\PGE\Cliente .NET\Cliente Richard\PGE\obj\Debug\Agesic.PGE.dll
+C:\Users\minzaurralde\Documents\Proyectos\AGESIC\PGE\Cliente .NET\Cliente Richard\PGE\obj\Debug\Agesic.PGE.pdb
+E:\BullTecnologia\AGESIC\Investigacion\WS-Security\version 1.2\PGE\bin\Debug\Agesic.PGE.dll.config
+E:\BullTecnologia\AGESIC\Investigacion\WS-Security\version 1.2\PGE\bin\Debug\Agesic.PGE.dll
+E:\BullTecnologia\AGESIC\Investigacion\WS-Security\version 1.2\PGE\bin\Debug\Agesic.PGE.pdb
+E:\BullTecnologia\AGESIC\Investigacion\WS-Security\version 1.2\PGE\obj\Debug\ResolveAssemblyReference.cache
+E:\BullTecnologia\AGESIC\Investigacion\WS-Security\version 1.2\PGE\obj\Debug\Agesic.PGE.dll
+E:\BullTecnologia\AGESIC\Investigacion\WS-Security\version 1.2\PGE\obj\Debug\Agesic.PGE.pdb
+C:\Users\usuario\Desktop\dotNET Ws-Security\PGE\bin\Debug\Agesic.PGE.dll.config
+C:\Users\usuario\Desktop\dotNET Ws-Security\PGE\bin\Debug\Agesic.PGE.dll
+C:\Users\usuario\Desktop\dotNET Ws-Security\PGE\bin\Debug\Agesic.PGE.pdb
+C:\Users\usuario\Desktop\dotNET Ws-Security\PGE\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\usuario\Desktop\dotNET Ws-Security\PGE\obj\Debug\Agesic.PGE.dll
+C:\Users\usuario\Desktop\dotNET Ws-Security\PGE\obj\Debug\Agesic.PGE.pdb
+E:\BullTecnologia\AGESIC\Tareas\dotNET Ws-Security\PGE\bin\Debug\Agesic.PGE.dll.config
+E:\BullTecnologia\AGESIC\Tareas\dotNET Ws-Security\PGE\bin\Debug\Agesic.PGE.dll
+E:\BullTecnologia\AGESIC\Tareas\dotNET Ws-Security\PGE\bin\Debug\Agesic.PGE.pdb
+E:\BullTecnologia\AGESIC\Tareas\dotNET Ws-Security\PGE\obj\Debug\ResolveAssemblyReference.cache
+E:\BullTecnologia\AGESIC\Tareas\dotNET Ws-Security\PGE\obj\Debug\Agesic.PGE.dll
+E:\BullTecnologia\AGESIC\Tareas\dotNET Ws-Security\PGE\obj\Debug\Agesic.PGE.pdb
+C:\Users\usuario\Desktop\Publish and suscribe\PGE\bin\Debug\Agesic.PGE.dll.config
+C:\Users\usuario\Desktop\Publish and suscribe\PGE\bin\Debug\Agesic.PGE.dll
+C:\Users\usuario\Desktop\Publish and suscribe\PGE\bin\Debug\Agesic.PGE.pdb
+C:\Users\usuario\Desktop\Publish and suscribe\PGE\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\usuario\Desktop\Publish and suscribe\PGE\obj\Debug\Agesic.PGE.dll
+C:\Users\usuario\Desktop\Publish and suscribe\PGE\obj\Debug\Agesic.PGE.pdb
+C:\Users\usuario\Desktop\Publish and suscribe - copia\PGE\bin\Debug\Agesic.PGE.dll.config
+C:\Users\usuario\Desktop\Publish and suscribe - copia\PGE\bin\Debug\Agesic.PGE.dll
+C:\Users\usuario\Desktop\Publish and suscribe - copia\PGE\bin\Debug\Agesic.PGE.pdb
+C:\Users\usuario\Desktop\Publish and suscribe - copia\PGE\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\usuario\Desktop\Publish and suscribe - copia\PGE\obj\Debug\Agesic.PGE.dll
+C:\Users\usuario\Desktop\Publish and suscribe - copia\PGE\obj\Debug\Agesic.PGE.pdb
+C:\Cliente .Net y P&S\PGE\obj\Debug\ResolveAssemblyReference.cache
+C:\Cliente .Net y P&S\PGE\obj\Debug\Agesic.PGE.dll
+C:\Cliente .Net y P&S\PGE\obj\Debug\Agesic.PGE.pdb
+C:\Cliente .Net y P&S\PGE\bin\Debug\Agesic.PGE.dll.config
+C:\Cliente .Net y P&S\PGE\bin\Debug\Agesic.PGE.dll
+C:\Cliente .Net y P&S\PGE\bin\Debug\Agesic.PGE.pdb

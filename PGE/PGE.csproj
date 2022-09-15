@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EC426806-7CE9-4047-910C-A5FB2C2C228C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AGESIC.PGE</RootNamespace>
+    <AssemblyName>Agesic.PGE</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>AGESIC.PGE.SNK.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.IdentityModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Addressing\MessageIDGenerator.cs" />
+    <Compile Include="Addressing\WSAActionHeader.cs" />
+    <Compile Include="Addressing\WSAMessageIDHeader.cs" />
+    <Compile Include="Configuration.cs" />
+    <Compile Include="Configuration\PGEConfig.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="Error\PGECannotCreateClient.cs" />
+    <Compile Include="Error\PGECertificateNotFoundException.cs" />
+    <Compile Include="Error\PGEClientCertificateException.cs" />
+    <Compile Include="Error\PGEConfigurationException.cs" />
+    <Compile Include="Error\PGEEndPointCannotBeCreatedException.cs" />
+    <Compile Include="Error\PGEScopeCannotBeCreated.cs" />
+    <Compile Include="Error\PGESecurityTokenCannotBeAdded.cs" />
+    <Compile Include="Error\PGETokenAlreadyAddedException.cs" />
+    <Compile Include="Error\PGETokenCannotBeAdded.cs" />
+    <Compile Include="Error\PGETokenCannotBeAddedException.cs" />
+    <Compile Include="Error\PGEUserNameSecurityTokenCannotBeAdded.cs" />
+    <Compile Include="Error\PGEUserNameSecurityTokenInvalidException.cs" />
+    <Compile Include="PGEContext.cs" />
+    <Compile Include="Error\PGEException.cs" />
+    <Compile Include="PGEUtils.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PS\ProducerInfo.cs" />
+    <Compile Include="PS\PSAckEndpointBehavior.cs" />
+    <Compile Include="PS\PSAckExtractorExtension.cs" />
+    <Compile Include="PS\PSMessageInspector.cs" />
+    <Compile Include="PS\PSTopicManager.cs" />
+    <Compile Include="PS\SubscriberInfo.cs" />
+    <Compile Include="PS\TopicHeader.cs" />
+    <Compile Include="PS\SubscriberHeader.cs" />
+    <Compile Include="PS\ProducerHeader.cs" />
+    <Compile Include="Security\FederationUtilities.cs" />
+    <Compile Include="Security\RequestSecurityToken.cs" />
+    <Compile Include="Security\RequestSecurityTokenBase.cs" />
+    <Compile Include="Security\RequestSecurityTokenResponse.cs" />
+    <Compile Include="Security\SamlTokenEmbedder.cs" />
+    <Compile Include="Security\SSLTrustCertificateAll.cs" />
+    <Compile Include="Security\STS\STS.cs" />
+    <Compile Include="Security\CustomUserNamePasswordValidatorSecurityTokenHandlerMaxi.cs" />
+    <Compile Include="Security\UserNameTokenEmbedder.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="AGESIC.PGE.SNK.pfx" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
