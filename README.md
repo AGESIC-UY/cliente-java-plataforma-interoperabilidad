@@ -18,5 +18,5 @@ doc
 Fuentes de ejemplo de uso
 
 
-Ejemplo de uso
-[a relative link](Ejemplo_de_uso.md)
+
+[Documentación de ejemplo de uso](Ejemplo_de_uso.md)
