@@ -15,4 +15,8 @@ Organización:
 src
 Fuentes de la solución
 doc
-Ejemplo de uso 
+Fuentes de ejemplo de uso
+
+
+Ejemplo de uso
+[a relative link](Ejemplo_de_uso.md)
