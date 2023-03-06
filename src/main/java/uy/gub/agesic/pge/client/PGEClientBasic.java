@@ -23,11 +23,14 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import uy.gub.agesic.pge.AgesicConstants;
 import uy.gub.agesic.pge.AssertionManager;
 import uy.gub.agesic.pge.PGEFactory;
 import uy.gub.agesic.pge.XMLUtils;
 import uy.gub.agesic.pge.beans.*;
+import uy.gub.agesic.pge.enums.SamlVersion;
 import uy.gub.agesic.pge.enums.SoapVersion;
 import uy.gub.agesic.pge.exceptions.*;
 import uy.gub.agesic.pge.pojos.Configuration;
@@ -41,6 +44,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.UnrecoverableKeyException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -51,7 +55,8 @@ public class PGEClientBasic implements PGEClient {
 
     @Override
     public STSResponse requestSecurityToken(final Configuration configuration,
-                                            final Connector connector, final String policyName, final String stsGlobalUrl, final CloseableHttpClient httpClient)
+                                            final Connector connector, final String policyName,
+                                            final String stsGlobalUrl, final CloseableHttpClient httpClient)
             throws RequestSecurityTokenException {
         final SAMLAssertion samlAssertion;
         final String alias = configuration.getAliasKeystore();
@@ -62,24 +67,18 @@ public class PGEClientBasic implements PGEClient {
         final ClientCredential credential;
         try {
             credential = generator.getCredential(password, storeFilePath, alias);
-        } catch (final KeyStoreException var24) {
-            log.error(var24.getMessage(), var24);
-            throw new RequestSecurityTokenException(var24, Integer.valueOf(903));
-        } catch (final NoSuchAlgorithmException var25) {
+        } catch (final NoSuchAlgorithmException | UnrecoverableKeyException var25) {
             log.error(var25.getMessage(), var25);
-            throw new RequestSecurityTokenException(var25, Integer.valueOf(902));
+            throw new RequestSecurityTokenException(var25, 902);
         } catch (final CertificateException var26) {
             log.error(var26.getMessage(), var26);
-            throw new RequestSecurityTokenException(var26, Integer.valueOf(900));
-        } catch (final UnrecoverableKeyException var27) {
-            log.error(var27.getMessage(), var27);
-            throw new RequestSecurityTokenException(var27, Integer.valueOf(902));
+            throw new RequestSecurityTokenException(var26, 900);
         } catch (final IOException var28) {
             log.error(var28.getMessage(), var28);
-            throw new RequestSecurityTokenException(var28, Integer.valueOf(901));
-        } catch (final Exception var29) {
-            log.error(var29.getMessage(), var29);
-            throw new RequestSecurityTokenException(var29, Integer.valueOf(903));
+            throw new RequestSecurityTokenException(var28, 901);
+        } catch (final Exception var24) {
+            log.error(var24.getMessage(), var24);
+            throw new RequestSecurityTokenException(var24, 903);
         }
 
         try {
@@ -100,21 +99,20 @@ public class PGEClientBasic implements PGEClient {
 
         try {
             assertionResponse = generator
-                    .getAssertionFromSOAP(requestSecurityTokenResponse.getStsResponse());
+                    .getAssertionFromSOAP(requestSecurityTokenResponse.getStsResponse(), connector.getSamlVersion());
             log.debug("Assertion was built successfully");
             log.debug(assertionResponse.toString());
         } catch (final ParserException var20) {
             log.error(var20.getMessage(), var20);
             throw new RequestSecurityTokenException(
-                    "Unable to parse RequestSecurityTokenResponse message", Integer.valueOf(905));
+                    "Unable to parse RequestSecurityTokenResponse message", 905);
         } catch (final NoAssertionFoundException var21) {
             log.error(var21.getMessage(), var21);
-            throw new RequestSecurityTokenException("No assertion was found", Integer.valueOf(906));
+            throw new RequestSecurityTokenException("No assertion was found", 906);
         } catch (final UnmarshalException var22) {
             log.error(var22.getMessage(), var22);
             throw new RequestSecurityTokenException(
-                    "Unmarshal error: Cannot build assertion from RequestSecurityTokenResponse message",
-                    Integer.valueOf(907));
+                    "Unmarshal error: Cannot build assertion from RequestSecurityTokenResponse message", 907);
         }
 
         log.warn("SAML Signature of RSTR not validated yet!");
@@ -127,35 +125,107 @@ public class PGEClientBasic implements PGEClient {
         final String messageID = UUID.randomUUID().toString();
         final String role = connector.getActualRoleOperation().getRole();
         final String service = connector.getWsaTo();
-        final Element elem = assertion.getDOM();
+        final Element elem = assertion.getDOM(connector.getSamlVersion());
+
+        if (connector.getSamlVersion() == SamlVersion.V2_0) {
+//            NodeList subjects = elem.getElementsByTagName("saml2:Subject");
+//            NodeList authStatements = elem.getElementsByTagName("saml2:AuthnStatement");
+//            if (subjects.getLength() > 0 && authStatements.getLength() > 0) {
+//                authStatements.item(0).appendChild(subjects.item(0));
+//            }
+
+            NodeList inclusiveNamespaces = elem.getElementsByTagName("ec:InclusiveNamespaces");
+            if (inclusiveNamespaces.getLength() > 0) {
+                inclusiveNamespaces.item(0).getAttributes().getNamedItem("PrefixList").setNodeValue("saml2");
+            }
+        }
 
         final String strSaml;
         try {
             strSaml = XMLUtils.xmlToString(elem);
         } catch (final MarshalException var11) {
             log.error(var11.getMessage(), var11);
-            throw new RequestSecurityTokenException("Could not create RST message.",
-                    Integer.valueOf(904));
+            throw new RequestSecurityTokenException("Could not create RST message.", 904);
         }
 
         final String xmlns = connector.getActualRoleOperation().getSoapVersion().equals(SoapVersion.V1_2.getName()) ?
                 AgesicConstants.NAMESPACE_SOAP_1_2 : AgesicConstants.NAMESPACE_SOAP_1_1;
 
-        final String soapMessagePartOne = "<s:Envelope xmlns:a=\"http://www.w3.org/2005/08/addressing\" xmlns:s=\"" + xmlns + "\"><s:Header><a:Action s:mustUnderstand=\"1\">http://schemas.xmlsoap.org/ws/2005/02/trust/Issue</a:Action><a:MessageID>urn:uuid:"
-                + messageID + "</a:MessageID>"
-                + "</s:Header><s:Body><RequestSecurityToken xmlns=\"http://schemas.xmlsoap.org/ws/2005/02/trust\">"
-                + "<TokenType>http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV1.1</TokenType>"
-                + "<AppliesTo xmlns=\"http://schemas.xmlsoap.org/ws/2004/09/policy\"><a:EndpointReference>"
-                + "<a:Address>" + service + "</a:Address></a:EndpointReference></AppliesTo>"
-                + "<RequestType>http://schemas.xmlsoap.org/ws/2005/02/trust/Issue</RequestType><Issuer>"
-                + "<a:Address>" + policyName + "</a:Address></Issuer><Base>";
-        final String soapMessagePartTwo = "</Base><SecondaryParameters><Rol>" + role
-                + "</Rol></SecondaryParameters></RequestSecurityToken></s:Body></s:Envelope>";
-        return soapMessagePartOne + strSaml + soapMessagePartTwo;
+        final String soapMessagePartOne =
+                "<s:Envelope xmlns:a=\"http://www.w3.org/2005/08/addressing\" xmlns:s=\"" + xmlns + "\">" +
+
+                    "<s:Header>" +
+                        "<a:Action s:mustUnderstand=\"1\">http://schemas.xmlsoap.org/ws/2005/02/trust/Issue</a:Action>" +
+                        "<a:MessageID>urn:uuid:" + messageID + "</a:MessageID>" +
+                    "</s:Header>" +
+
+                    "<s:Body>" +
+                        "<RequestSecurityToken xmlns=\"http://schemas.xmlsoap.org/ws/2005/02/trust\">" +
+                        "<TokenType>http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV1.1</TokenType>" +
+
+                        "<AppliesTo xmlns=\"http://schemas.xmlsoap.org/ws/2004/09/policy\">" +
+                            "<a:EndpointReference>" +
+                                "<a:Address>" + service + "</a:Address>" +
+                            "</a:EndpointReference>" +
+                        "</AppliesTo>" +
+
+                        "<RequestType>http://schemas.xmlsoap.org/ws/2005/02/trust/Issue</RequestType>" +
+
+                        "<Issuer>" +
+                            "<a:Address>" + policyName + "</a:Address>" +
+                        "</Issuer>" +
+
+                        "<Base>";
+
+        final String soapMessagePartTwo = "</Base>" +
+                        "<SecondaryParameters>" +
+                            "<Rol>" + role + "</Rol>" +
+                        "</SecondaryParameters>" +
+
+                        "</RequestSecurityToken>" +
+
+                    "</s:Body>" +
+
+                "</s:Envelope>";
+
+        final String soapMessageSaml2PartOne =
+                "<soapenv:Envelope xmlns:soapenv=\"" + xmlns + "\" xmlns:wst=\"http://docs.oasis-open.org/ws-sx/ws-trust/200512\" xmlns:wsa=\"http://www.w3.org/2005/08/addressing\">" +
+
+                        "<soapenv:Header>" +
+                            "<wsa:MessageID>uuid-" + messageID + "</wsa:MessageID>" +
+                            "<wsa:Action>http://docs.oasis-open.org/ws-sx/ws-trust/200512/RequestSecurityToken</wsa:Action>" +
+                        "</soapenv:Header>" +
+
+                        "<soapenv:Body>" +
+                            "<wst:RequestSecurityToken >" +
+
+                                "<wsp:AppliesTo xmlns:wsp=\"http://schemas.xmlsoap.org/ws/2004/09/policy\">" +
+                                    "<wsa:EndpointReference>" +
+                                        "<wsa:Address>" + service + "</wsa:Address>" +
+                                    "</wsa:EndpointReference>" +
+                                "</wsp:AppliesTo>" +
+
+                                "<wst:RequestType>http://docs.oasis-open.org/ws-sx/ws-trust/200512/Issue</wst:RequestType>" +
+
+                                "<wst:Issuer>" +
+                                    "<wsa:Address>" + policyName + "</wsa:Address>" +
+                                "</wst:Issuer>" +
+
+                                "<wst:Base>";
+
+        final String soapMessageSaml2PartTwo =
+                                "</wst:Base>" +
+                        "</wst:RequestSecurityToken>" +
+                    "</soapenv:Body>" +
+                "</soapenv:Envelope>";
+
+        return (connector.getSamlVersion() == SamlVersion.V2_0 ? soapMessageSaml2PartOne:soapMessagePartOne) + strSaml + (connector.getSamlVersion() == SamlVersion.V2_0 ? soapMessageSaml2PartTwo:soapMessagePartTwo);
     }
 
     private RSTRBean requestStsHttpComponents(final Connector connector,
-                                              final Configuration configuration, final String requestSecurityTokenMessage, final String stsGlobalUrl, final CloseableHttpClient httpClient)
+                                              final Configuration configuration,
+                                              final String requestSecurityTokenMessage,
+                                              final String stsGlobalUrl, final CloseableHttpClient httpClient)
             throws RequestSecurityTokenException {
         final InputStream stream;
 
@@ -173,14 +243,16 @@ public class PGEClientBasic implements PGEClient {
 //        } catch (final IOException e) {
 //            throw new RequestSecurityTokenException(e, Integer.valueOf(901));
 //        }
-        final String url;
+        String url;
         if (connector.isEnableSTSLocal()) {
             url = connector.getStsLocalUrl();
         } else {
-            //TODO: Fix this
             //final ConnectorGlobalConfiguration globalConfiguration = connectorService.getGlobalConfigurationByType(connector.getType());
             url = stsGlobalUrl;//globalConfiguration.getStsGlobalUrl();
         }
+
+        //url = "https://testservicios.pge.red.uy:6022/SecurityTokenService/2.0";
+
         //TODO: Fix this
         //try (CloseableHttpClient httpclient = prepareClient(keystore, configuration, truststoreSSL, url, connManager)) {
         try (CloseableHttpClient httpclient = httpClient) {
@@ -188,10 +260,9 @@ public class PGEClientBasic implements PGEClient {
             final String requestSecurityTokenResponseMessage;
             try {
                 final RequestConfig requestConfig = RequestConfig.custom()
-                        .setSocketTimeout(Integer.valueOf(AgesicConstants.TIME_OUT_MILLIS))
-                        .setConnectTimeout(Integer.valueOf(AgesicConstants.TIME_OUT_MILLIS))
-                        .setConnectionRequestTimeout(
-                                Integer.valueOf(AgesicConstants.TIME_OUT_MILLIS))
+                        .setSocketTimeout(AgesicConstants.TIME_OUT_MILLIS)
+                        .setConnectTimeout(AgesicConstants.TIME_OUT_MILLIS)
+                        .setConnectionRequestTimeout(AgesicConstants.TIME_OUT_MILLIS)
                         .build();
 
                 final HttpPost httpPost = new HttpPost(url);
@@ -222,15 +293,14 @@ public class PGEClientBasic implements PGEClient {
                 log.debug(requestSecurityTokenResponseMessage);
                 final int result = statusLine.getStatusCode();
                 if (result != 200 && result != 202) {
-                    throw new RequestSecurityTokenException(requestSecurityTokenResponseMessage,
-                            Integer.valueOf(908));
+                    throw new RequestSecurityTokenException(requestSecurityTokenResponseMessage, 908);
                 }
             } catch (final IOException var78) {
                 log.error(var78.getMessage(), var78);
-                throw new RequestSecurityTokenException(var78, Integer.valueOf(901));
+                throw new RequestSecurityTokenException(var78, 901);
             } catch (final Exception var83) {
                 log.error(var83.getMessage(), var83);
-                throw new RequestSecurityTokenException(var83, Integer.valueOf(908));
+                throw new RequestSecurityTokenException(var83, 908);
             } finally {
                 // Cierro la conexion.
                 httpclient.close();
@@ -240,7 +310,7 @@ public class PGEClientBasic implements PGEClient {
 
         } catch (final IOException e) {
             log.error(e.getMessage(), e);
-            throw new RequestSecurityTokenException(e, Integer.valueOf(909));
+            throw new RequestSecurityTokenException(e, 909);
         }
     }
 
@@ -287,10 +357,10 @@ public class PGEClientBasic implements PGEClient {
             return keystore;
         } catch (final NoSuchAlgorithmException exception) {
             log.error(exception.getMessage(), exception);
-            throw new RequestSecurityTokenException(exception, Integer.valueOf(902));
+            throw new RequestSecurityTokenException(exception, 902);
         } catch (final CertificateException exception) {
             log.error(exception.getMessage(), exception);
-            throw new RequestSecurityTokenException(exception, Integer.valueOf(900));
+            throw new RequestSecurityTokenException(exception, 900);
         } finally {
             try {
                 if (inputStream != null) {
@@ -302,7 +372,7 @@ public class PGEClientBasic implements PGEClient {
         }
     }
 
-    private class RSTRBean {
+    private static class RSTRBean {
         private final String stsResponse;
 
         private final long responseTime;

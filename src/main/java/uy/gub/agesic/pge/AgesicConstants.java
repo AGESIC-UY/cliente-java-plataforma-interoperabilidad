@@ -7,9 +7,13 @@ public class AgesicConstants {
 
     public static final String SAML10_PASSWD_AUTH_METHOD = "urn:oasis:names:tc:SAML:1.0:am:password";
 
+    public static final String SAML20_PASSWD_AUTH_CONTEXT = "urn:oasis:names:tc:SAML:2.0:ac:classes:Password";
+
     public static final String NAMEID_FORMAT = "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress";
 
     public static final String SAML10_BEARER_CONFIRMATION_METHOD = "urn:oasis:names:tc:SAML:1.0:cm:bearer";
+
+    public static final String SAML20_BEARER_CONFIRMATION_METHOD = "urn:oasis:names:tc:SAML:2.0:cm:bearer";
 
     public static final String USER_ATTRIBUTE_NAME = "User";
 

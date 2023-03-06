@@ -138,9 +138,3 @@ public class AddressingConstantsImpl implements AddressingConstants {
         return "A required header representing a Message Addressing Property is not present";
     }
 }
-
-
-/* Location:              /Users/kreitech/Documents/AGESIC/resources/pge/pge-client-2.5.jar!/uy/gub/agesic/pge/core/ws/addressing/AddressingConstantsImpl.class
- * Java compiler version: 6 (50.0)
- * JD-Core Version:       1.1.3
- */

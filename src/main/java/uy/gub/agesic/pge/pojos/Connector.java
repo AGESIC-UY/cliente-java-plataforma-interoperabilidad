@@ -1,5 +1,7 @@
 package uy.gub.agesic.pge.pojos;
 
+import uy.gub.agesic.pge.enums.SamlVersion;
+
 public class Connector {
 
     private RoleOperation actualRoleOperation;
@@ -16,10 +18,12 @@ public class Connector {
 
     private String stsLocalUrl;
 
+    private SamlVersion samlVersion;
+
     public Connector() {
     }
 
-    public Connector(RoleOperation actualRoleOperation, String wsaTo, String username, String issuer, boolean enableCacheTokens, boolean enableSTSLocal, String stsLocalUrl) {
+    public Connector(RoleOperation actualRoleOperation, String wsaTo, String username, String issuer, boolean enableCacheTokens, boolean enableSTSLocal, String stsLocalUrl, SamlVersion samlVersion) {
         this.actualRoleOperation = actualRoleOperation;
         this.wsaTo = wsaTo;
         this.username = username;
@@ -27,6 +31,7 @@ public class Connector {
         this.enableCacheTokens = enableCacheTokens;
         this.enableSTSLocal = enableSTSLocal;
         this.stsLocalUrl = stsLocalUrl;
+        this.samlVersion = samlVersion;
     }
 
     public RoleOperation getActualRoleOperation() {
@@ -83,5 +88,13 @@ public class Connector {
 
     public void setStsLocalUrl(String stsLocalUrl) {
         this.stsLocalUrl = stsLocalUrl;
+    }
+
+    public SamlVersion getSamlVersion() {
+        return samlVersion;
+    }
+
+    public void setSamlVersion(SamlVersion samlVersion) {
+        this.samlVersion = samlVersion;
     }
 }

@@ -5,7 +5,6 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.apache.commons.lang.time.DateUtils;
-import org.apache.http.conn.HttpClientConnectionManager;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +38,8 @@ public class PGEClientCache implements PGEClient {
 
     @Override
     public STSResponse requestSecurityToken(final Configuration configuration,
-                                            final Connector connector, final String policyName, final String stsGlobalUrl, final CloseableHttpClient httpClient)
+                                            final Connector connector, final String policyName,
+                                            final String stsGlobalUrl, final CloseableHttpClient httpClient)
             throws RequestSecurityTokenException {
         if (connector.isEnableCacheTokens()) {
             LOGGGER.debug("cache is enabled");
@@ -52,7 +52,8 @@ public class PGEClientCache implements PGEClient {
     }
 
     private STSResponse requestSecurityTokenCacheable(final Configuration configuration,
-                                                      final Connector connector, final String policyName, final String stsGlobalUrl, final CloseableHttpClient httpClient)
+                                                      final Connector connector, final String policyName,
+                                                      final String stsGlobalUrl, final CloseableHttpClient httpClient)
             throws RequestSecurityTokenException {
         final String serviceName = connector.getWsaTo();
         final SAMLAssertion token = this.cache.get(serviceName);
@@ -83,7 +84,7 @@ public class PGEClientCache implements PGEClient {
              * tener un margen de tiempo para contemplar estos casos.
              *
              */
-            final Date tokenLifeTime = token.getAssertion().getConditions().getNotOnOrAfter()
+            final Date tokenLifeTime = token.getAssertionSaml1().getConditions().getNotOnOrAfter()
                     .toDate();
             final Date maximumDateTimeTokenUsage = DateUtils.addMinutes(new Date(), ERROR_MARGIN);
             return maximumDateTimeTokenUsage.compareTo(tokenLifeTime) >= 0;

@@ -6,7 +6,9 @@ import java.security.NoSuchAlgorithmException;
 import java.security.UnrecoverableKeyException;
 import java.security.cert.CertificateException;
 
+import org.opensaml.common.SAMLVersion;
 import uy.gub.agesic.pge.beans.ClientCredential;
+import uy.gub.agesic.pge.enums.SamlVersion;
 import uy.gub.agesic.pge.pojos.Connector;
 import uy.gub.agesic.pge.beans.SAMLAssertion;
 import uy.gub.agesic.pge.beans.RSTBean;
@@ -20,7 +22,7 @@ public interface AssertionManager {
     public ClientCredential getCredentialFromAssertion(SAMLAssertion assertion);
 
     /**
-     * Generates a signed SAML 1.0 Assertion using a ClientCredential
+     * Generates a signed SAML Assertion using a ClientCredential
      *
      * @param bean
      *            A {@link RSTBean} with the SAML attributes
@@ -48,7 +50,7 @@ public interface AssertionManager {
      * @throws NoAssertionFoundException
      *             if no {@link SAMLAssertion} is found in the SOAP message
      */
-    public SAMLAssertion getAssertionFromSOAP(String string)
+    public SAMLAssertion getAssertionFromSOAP(String string, SamlVersion samlVersion)
             throws ParserException, NoAssertionFoundException, UnmarshalException;
 
     /**
